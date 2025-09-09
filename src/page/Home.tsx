@@ -1,5 +1,6 @@
 import React from "react";
 import bgHero from "@/assets/bg-hero.png";
+import bgFreeQuote from "@/assets/bg-free-quote.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,13 +15,16 @@ import brand4 from "@/assets/brands/4.png";
 
 import tank1 from "@/assets/services/tank/1.webp";
 
+import { works } from "@/data/works";
 import { services } from "@/data/services";
 
 import {
   IconArrowBearRight,
   IconArrowRight,
   IconHome,
+  IconStar,
 } from "@tabler/icons-react";
+import CardWork from "@/components/CardWork";
 
 export default function Home() {
   const profiles = [profile1, profile2, profile3];
@@ -37,15 +41,120 @@ export default function Home() {
       .replace(/-+/g, "-"); // Evita múltiples guiones seguidos
   }
 
+  const testimonials = [
+    {
+      id: "1",
+      image: profile1.src,
+      name: "Northview Consulting",
+      position: "Facility Manager",
+      testimonial:
+        "We needed to repaint our offices, and Premium Coat did an awesome job. They were professional, knew exactly what we wanted, and finished early. We’d definitely hire them again.",
+    },
+    {
+      id: "2",
+      image: profile2.src,
+      name: "Stonebridge Supplies",
+      position: "Operations Director",
+      testimonial:
+        "We hired Premium Coat to paint the metal deck ceiling of our store, and they worked during the night to avoid disrupting our business hours. They were very organized, worked carefully, and made sure everything was ready for us to open the next day without any issues. Great service.",
+    },
+
+    {
+      id: "3",
+      image: profile3.src,
+      name: "Diana Cameron",
+      position: "Facility Supervisor",
+      testimonial:
+        "We hired Premium Coat to paint the metal deck ceiling of our store, and they worked during the night to avoid disrupting our business hours. They were very organized, worked carefully, and made sure everything was ready for us to open the next day without any issues. Great service.",
+    },
+    {
+      id: "4",
+      image: profile1.src,
+      name: "Northview Consulting",
+      position: "Facility Manager",
+      testimonial:
+        "We needed to repaint our offices, and Premium Coat did an awesome job. They were professional, knew exactly what we wanted, and finished early. We’d definitely hire them again.",
+    },
+    {
+      id: "5",
+      image: profile2.src,
+      name: "Stonebridge Supplies",
+      position: "Operations Director",
+      testimonial:
+        "We hired Premium Coat to paint the metal deck ceiling of our store, and they worked during the night to avoid disrupting our business hours. They were very organized, worked carefully, and made sure everything was ready for us to open the next day without any issues. Great service.",
+    },
+
+    {
+      id: "6",
+      image: profile3.src,
+      name: "Diana Cameron",
+      position: "Facility Supervisor",
+      testimonial:
+        "We hired Premium Coat to paint the metal deck ceiling of our store, and they worked during the night to avoid disrupting our business hours. They were very organized, worked carefully, and made sure everything was ready for us to open the next day without any issues. Great service.",
+    },
+    {
+      id: "7",
+      image: profile1.src,
+      name: "Northview Consulting",
+      position: "Facility Manager",
+      testimonial:
+        "We needed to repaint our offices, and Premium Coat did an awesome job. They were professional, knew exactly what we wanted, and finished early. We’d definitely hire them again.",
+    },
+    {
+      id: "8",
+      image: profile2.src,
+      name: "Stonebridge Supplies",
+      position: "Operations Director",
+      testimonial:
+        "We hired Premium Coat to paint the metal deck ceiling of our store, and they worked during the night to avoid disrupting our business hours. They were very organized, worked carefully, and made sure everything was ready for us to open the next day without any issues. Great service.",
+    },
+
+    {
+      id: "9",
+      image: profile3.src,
+      name: "Diana Cameron",
+      position: "Facility Supervisor",
+      testimonial:
+        "We hired Premium Coat to paint the metal deck ceiling of our store, and they worked during the night to avoid disrupting our business hours. They were very organized, worked carefully, and made sure everything was ready for us to open the next day without any issues. Great service.",
+    },
+
+    {
+      id: "10",
+      image: profile3.src,
+      name: "Diana Cameron",
+      position: "Facility Supervisor",
+      testimonial:
+        "We hired Premium Coat to paint the metal deck ceiling of our store, and they worked during the night to avoid disrupting our business hours. They were very organized, worked carefully, and made sure everything was ready for us to open the next day without any issues. Great service.",
+    },
+
+    {
+      id: "11",
+      image: profile3.src,
+      name: "Diana Cameron",
+      position: "Facility Supervisor",
+      testimonial:
+        "We hired Premium Coat to paint the metal deck ceiling of our store, and they worked during the night to avoid disrupting our business hours. They were very organized, worked carefully, and made sure everything was ready for us to open the next day without any issues. Great service.",
+    },
+
+    {
+      id: "12",
+      image: profile3.src,
+      name: "Diana Cameron",
+      position: "Facility Supervisor",
+      testimonial:
+        "We hired Premium Coat to paint the metal deck ceiling of our store, and they worked during the night to avoid disrupting our business hours. They were very organized, worked carefully, and made sure everything was ready for us to open the next day without any issues. Great service.",
+    },
+  ];
+
   return (
-    <main className="w-full h-max flex flex-col justify-start items-center p-2 ">
-      <section className="relative w-full h-[100dvh] text-white p-20 flex flex-col justify-center items-start">
+    <main className="w-full h-max flex flex-col justify-start items-center p-2 overflow-hidden ">
+      <section className="relative w-full h-[100dvh] text-white p-20 flex flex-col justify-center items-start rounded-4xl overflow-hidden">
         <Image
           src={bgHero}
           width={1920}
           height={1080}
           alt="bg-hero"
-          className="absolute w-full h-full top-0 left-0 -z-10"
+          className="absolute w-full h-full top-0 left-0 -z-10 object-cover"
         />
 
         <div className="space-y-10 flex-1 flex flex-col justify-center items-start">
@@ -288,6 +397,195 @@ export default function Home() {
               </div>
             ))}
         </div>
+      </section>
+
+      <section className="w-full h-dvh min-h-max py-20 flex flex-col justify-center items-center space-y-20">
+        <div className="text-center max-w-[800px] flex flex-col justify-center items-center">
+          <span className="text-secondary flex justify-center items-center gap-2 font-zain text-3xl pb-2">
+            Testimonials
+            <IconArrowBearRight />
+          </span>
+
+          <h2 className="font-zain text-5xl font-bold">
+            Why our customers loves us
+          </h2>
+
+          <p className="opacity-70 w-[70%]">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard
+          </p>
+        </div>
+
+        <div className="overflow-hidden w-full space-y-10 py-8">
+          <div className="flex w-max animate-scroll-x-left hover:[animation-play-state:paused] gap-5">
+            {[...testimonials, ...testimonials].map((review, index) => (
+              <div
+                key={index}
+                className="w-[600px] max-lg:w-[350px] space-y-5 flex flex-col justify-center h-max items-start shrink-0 rounded-4xl p-6 transition-all relative group overflow-hidden shadow-xl"
+              >
+                <div className="flex justify-start items-center gap-2">
+                  <Image
+                    className="w-10 h-auto object-cover"
+                    src={review.image}
+                    width={250}
+                    height={250}
+                    alt={review.name}
+                  />
+                  <div>
+                    <p className="w-full">{review.name}</p>
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <IconStar
+                          key={i}
+                          className="w-3 h-3 text-[#F0AE4D]"
+                          fill="#F0AE4D"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <p className="font-zain text-2xl leading-7 ">
+                  &quot;{review.testimonial}&quot;
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex -translate-x-[50%] w-max animate-scroll-x-right hover:[animation-play-state:paused] gap-5">
+            {[...testimonials, ...testimonials].map((review, index) => (
+              <div
+                key={index}
+                className="w-[600px] max-lg:w-[350px] space-y-5 flex flex-col justify-center h-max items-start shrink-0 rounded-4xl p-6 transition-all relative group overflow-hidden shadow-xl"
+              >
+                <div className="flex justify-start items-center gap-2">
+                  <Image
+                    className="w-10 h-auto object-cover"
+                    src={review.image}
+                    width={250}
+                    height={250}
+                    alt={review.name}
+                  />
+                  <div>
+                    <p className="w-full">{review.name}</p>
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <IconStar
+                          key={i}
+                          className="w-3 h-3 text-[#F0AE4D]"
+                          fill="#F0AE4D"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <p className="font-zain text-2xl leading-7 ">
+                  &quot;{review.testimonial}&quot;
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* <div className="flex -translate-x-[50%] w-max animate-scroll-x-right hover:[animation-play-state:paused] gap-5">
+            {[...testimonials, ...testimonials].map((review, index) => (
+              <div
+                key={index}
+                className="w-[600px] max-lg:w-[350px] max-lg:border max-lg:border-white/10 space-y-5 flex flex-col justify-between items-start shrink-0 border border-transparent hover:border-white/10 rounded-4xl p-6 hover:bg-radial-[at_100%_0%] from-white/15 to-transparent transition-all"
+              >
+                <p className="text-black/70">{review.testimonial}</p>
+                <div className="flex justify-start items-center gap-2">
+                  <Image
+                    className="w-10 h-auto object-cover"
+                    src={review.image}
+                    width={250}
+                    height={250}
+                    alt={review.name}
+                  />
+                  <div>
+                    <p className="w-full">{review.name}</p>
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <IconStar
+                          key={i}
+                          className="w-3 h-3 text-[#F0AE4D]"
+                          fill="#F0AE4D"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div> */}
+        </div>
+      </section>
+
+      <section className="relative w-full h-[50dvh] rounded-4xl overflow-hidden my-20 flex flex-col justify-center items-center space-y-20 bg-gradient-to-t from-[#001B35]  to-transparent ">
+        <Image
+          src={bgFreeQuote}
+          width={1920}
+          height={1080}
+          alt="bg-hero"
+          className="absolute w-full h-full top-0 left-0 -z-10 object-cover"
+        />
+
+        <div className="max-w-[800px] text-center text-white flex flex-col justify-center items-center gap-10">
+          <div>
+            <h2 className="font-zain text-6xl">Your vision, our commitment</h2>
+
+            <p className="opacity-80">
+              Premium Coat delivers professional industrial and commercial
+              painting, using advanced techniques and premium materials for
+              durable, long-lasting finishes. From large-scale coatings to
+              detailed applications, we offer efficient, reliable solutions that
+              protect and enhance your property.
+            </p>
+          </div>
+
+          <Link
+            href={"/contact"}
+            className="bg-secondary rounded-full px-6 py-4 flex justify-center items-center gap-2 font-medium"
+          >
+            Get a Free Quote!
+            <IconArrowRight className="-rotate-45" />
+          </Link>
+
+          <p>Prefer to chat first ? Call our : 01234 XXXX XX</p>
+        </div>
+      </section>
+
+      <section className="w-full h-dvh min-h-max max-w-[1280px] py-20 flex flex-col justify-center items-center space-y-20">
+        <div className="text-center max-w-[800px] flex flex-col justify-center items-center">
+          <span className="text-secondary flex justify-center items-center gap-2 font-zain text-3xl pb-2">
+            Works
+            {/* <IconArrowBearRight /> */}
+          </span>
+
+          <h2 className="font-zain text-5xl font-bold">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry
+          </h2>
+        </div>
+
+        <div className="w-full flex justify-center gap-5 items-center flex-wrap gap-y-5">
+          {works &&
+            works.map(({ title, id, images, subtitle }, index) => (
+              <div
+                // {...animationFadeInUp(index * 0.15)}
+                key={id}
+              >
+                <CardWork company={title} images={images} service={subtitle} />
+              </div>
+            ))}
+        </div>
+        <Link
+          href={"/contact"}
+          className="bg-secondary rounded-full px-6 py-4 flex justify-center items-center gap-2 font-medium text-white"
+        >
+          Contact us
+          <IconArrowRight className="-rotate-45" />
+        </Link>
       </section>
     </main>
   );

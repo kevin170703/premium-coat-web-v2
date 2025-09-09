@@ -7,6 +7,28 @@
   --foreground: #000;
 }
 
+@layer base {
+  .ProseMirror {
+    @apply leading-relaxed;
+  }
+
+  .ProseMirror h2 {
+    @apply text-2xl font-semibold mt-5 mb-3;
+  }
+
+  .ProseMirror h3 {
+    @apply text-xl font-medium mt-4 mb-2;
+  }
+
+  .ProseMirror p {
+    @apply mb-4;
+  }
+
+  .ProseMirror blockquote {
+    @apply border-l-4 border-gray-300 pl-4;
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -15,6 +37,27 @@
   --color-secondary: var(--secondary);
 
   --font-zain: var(--font-zain);
+
+  --animate-scroll-x-left: scroll-x-left 200s linear infinite;
+  --animate-scroll-x-right: scroll-x-right 200s linear infinite;
+
+  @keyframes scroll-x-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(calc(-580px * 12 - 1.25rem * 24));
+    }
+  }
+
+  @keyframes scroll-x-right {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(calc(580px * 12 - 1.25rem * 24));
+    }
+  }
 }
 
 body {

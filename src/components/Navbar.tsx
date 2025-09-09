@@ -3,6 +3,8 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import logoWhite from "@/assets/logos/horizontal-white.png";
+import logoBlack from "@/assets/logos/horizontal-black.png";
+
 import Image from "next/image";
 import { IconCornerDownRight, IconMenuDeep, IconX } from "@tabler/icons-react";
 import { usePathname } from "next/navigation";
@@ -38,6 +40,15 @@ export default function Navbar() {
   useEffect(() => {
     if (pathname) {
       const divideUrl = pathname.split("/");
+      if (divideUrl[1] === "services") {
+        setSelectLink("services");
+        return;
+      }
+
+      if (divideUrl[1] === "blog") {
+        setSelectLink("blog");
+        return;
+      }
       setSelectLink(divideUrl[divideUrl.length - 1] || "/");
     }
   }, [pathname]);
@@ -64,20 +75,33 @@ export default function Navbar() {
         scrolled ? "bg-primary py-6" : "pt-10"
       }`}
     >
-      <Image
-        src={logoWhite}
-        width={500}
-        height={200}
-        alt="logoWhite"
-        className="h-10 w-auto"
-      />
+      <Link href={"/"}>
+        <Image
+          src={
+            (selectLink === "blog" || selectLink === "gallery") && !scrolled
+              ? logoBlack
+              : logoWhite
+          }
+          width={500}
+          height={200}
+          alt="logoWhite"
+          className="h-10 w-auto"
+        />
+      </Link>
 
-      <button onClick={() => setOpenMenu(true)} className="cursor-pointer">
+      <button
+        onClick={() => setOpenMenu(true)}
+        className={`cursor-pointer ${
+          (selectLink === "blog" || selectLink === "gallery") && !scrolled
+            ? "text-black"
+            : "text-white"
+        }`}
+      >
         <IconMenuDeep className="size-10" />
       </button>
 
       {openMenu && (
-        <div className="absolute w-80 space-y-6 h-max  right-11 top-4 rounded-3xl p-6   bg-white text-black">
+        <div className="absolute w-80 space-y-6 h-max  right-11 top-4 rounded-3xl p-6   bg-white shadow-lg text-black">
           <div className="w-full flex justify-end items-center">
             <button
               onClick={() => setOpenMenu(false)}
@@ -89,7 +113,9 @@ export default function Navbar() {
           </div>
           <div className="space-y-2">
             <div className="uppercase font-medium text-2xl">
-              <Link href={`/`}>Home</Link>
+              <Link href={`/`} onClick={() => setOpenMenu(false)}>
+                Home
+              </Link>
             </div>
 
             <div className=" font-medium text-2xl">
@@ -126,12 +152,18 @@ export default function Navbar() {
                       {menuSubServices.id === service.id &&
                         menuSubServices.open && (
                           <div className="flex flex-col justify-center items-start gap-2 my-1 ml-7 text-black">
-                            {service.services.map((service) => (
+                            {service.services.map((subService) => (
                               <Link
-                                href={`services/s=${slugify(service)}`}
+                                href={`/services/${slugify(
+                                  service.title
+                                )}?s=${slugify(subService)}`}
+                                onClick={() => {
+                                  setOpenMenuServices(false);
+                                  setOpenMenu(false);
+                                }}
                                 className="opacity-70 hover:opacity-100"
                               >
-                                {service}
+                                {subService}
                               </Link>
                             ))}
                           </div>
@@ -143,11 +175,21 @@ export default function Navbar() {
             </div>
 
             <div className="uppercase font-medium text-2xl">
-              <Link href={`/`}>Blog</Link>
+              <Link href={`/blog`} onClick={() => setOpenMenu(false)}>
+                Blog
+              </Link>
             </div>
 
             <div className="uppercase font-medium text-2xl">
-              <Link href={`/`}>Contact</Link>
+              <Link href={`/gallery`} onClick={() => setOpenMenu(false)}>
+                Gallery
+              </Link>
+            </div>
+
+            <div className="uppercase font-medium text-2xl">
+              <Link href={`/contact`} onClick={() => setOpenMenu(false)}>
+                Contact
+              </Link>
             </div>
           </div>
 
