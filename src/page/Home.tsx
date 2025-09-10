@@ -25,6 +25,7 @@ import {
   IconStar,
 } from "@tabler/icons-react";
 import CardWork from "@/components/CardWork";
+import ChatBot from "@/components/ChatBot";
 
 export default function Home() {
   const profiles = [profile1, profile2, profile3];
@@ -148,6 +149,7 @@ export default function Home() {
 
   return (
     <main className="w-full h-max flex flex-col justify-start items-center p-2 overflow-hidden ">
+      <ChatBot />
       <section className="relative w-full h-[100dvh] text-white p-20 flex flex-col justify-center items-start rounded-4xl overflow-hidden">
         <Image
           src={bgHero}
