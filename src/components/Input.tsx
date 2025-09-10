@@ -9,7 +9,7 @@ export default function Input({
   disabled = false,
   required = false,
 }: {
-  label: string;
+  label?: string;
   placeholder: string;
   type?: "text" | "email" | "password";
   id: string;

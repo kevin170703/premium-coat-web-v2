@@ -90,7 +90,7 @@ export default function BlogEditor({
   if (!editor) return null;
 
   return (
-    <div className="min-w-full w-full min-h-[150px] flex flex-col bg-active text-white py-3 px-5 rounded-3xl focus-within:border-primary border-active bg-white/10 border border-white/10 backdrop-blur-lg">
+    <div className="min-w-full w-full min-h-[150px] flex flex-col bg-active text-black py-3 px-5 rounded-3xl focus-within:border-primary border-active  border border-[#ccc] backdrop-blur-lg">
       {label && (
         <label
           // htmlFor={id}

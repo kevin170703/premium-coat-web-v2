@@ -10,13 +10,16 @@
   },
   "dependencies": {
     "@tabler/icons-react": "3.34.1",
-    "axios": "^1.11.0",
-    "framer-motion": "^12.23.12",
+    "@tiptap/extension-heading": "3.2.0",
+    "@tiptap/react": "3.2.0",
+    "@tiptap/starter-kit": "3.2.0",
+    "axios": "1.11.0",
+    "firebase": "12.2.1",
+    "framer-motion": "12.23.12",
     "next": "15.5.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "resend": "6.0.3",
-    "swiper": "^11.2.10"
+    "resend": "6.0.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3",

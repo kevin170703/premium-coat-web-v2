@@ -4,9 +4,9 @@ import type React from "react";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Input from "../ui/Input";
-import TextArea from "../ui/TextArea";
-import UploadImage from "../ui/UploadImage";
+import Input from "@/components/Input";
+import TextArea from "@/components/TextArea";
+import UploadImage from "@/components/UploadImage";
 import BlogEditor from "./BlogEditor";
 
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
@@ -354,13 +354,12 @@ export function PostForm() {
           <p className="text-red-500 text-sm mt-1">{errors.body}</p>
         )}
       </div>
-      <p>{formData.body}</p>
 
       {/* Submit button */}
       <div className="flex gap-4">
         <button
           type="submit"
-          className="bg-primary/10 border border-white/10 text-white px-6 py-3 rounded-full hover:scale-105 active:scale-95 transition-transform cursor-pointer"
+          className="bg-secondary text-white px-6 py-3 rounded-full hover:scale-105 active:scale-95 transition-transform cursor-pointer"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Creando..." : "Crear post"}

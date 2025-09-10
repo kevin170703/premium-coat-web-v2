@@ -14,6 +14,7 @@ import logoUserBot from "@/assets/logos/isotipo-white.png";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { div } from "framer-motion/client";
+import Link from "next/link";
 
 interface Message {
   id: string;
@@ -25,8 +26,8 @@ interface Message {
 }
 
 export default function ChatBot({
-  title = "Molokaih",
-  actionMessage = "Hello! 👋 I'm the virtual assistant of Molokaih. I'm here to transform your digital presence. How can we assist your business?",
+  title = "Premium Coat",
+  actionMessage = "Hello! 👋 I'm the Premium Coat virtual assistant. I'm here to answer all your questions. How can we help you?",
   inputPlaceholder = "Write a message...",
   logo = logoMolokaih.src,
 }: {
@@ -48,7 +49,7 @@ export default function ChatBot({
 
   const [checked, setChecked] = useState(true);
 
-  const [viewTerms, setViewTerms] = useState(false);
+  const [viewTerms, setViewTerms] = useState(true);
 
   const handleChange = () => {
     setChecked(!checked);
@@ -88,7 +89,8 @@ export default function ChatBot({
         },
         body: JSON.stringify({
           message: inputValue,
-          sessionId: sessionId.current,
+          sessionId: sessionId,
+          // sessionId: sessionId.current,
         }),
       });
 
@@ -221,7 +223,7 @@ export default function ChatBot({
             animate={{ y: 0, x: 0, scale: 1, opacity: 1 }}
             exit={{ y: 50, x: 10, scale: 0.5, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="flex flex-col w-[400px] h-[600px] max-md:max-w-[91dvw] max-md:h-[85dvh] bg-white text-black rounded-3xl border border-white/10 relative overflow-hidden"
+            className="flex flex-col w-[400px] h-[600px] max-md:max-w-[91dvw] max-md:h-[85dvh] bg-white text-black rounded-3xl shadow-2xl border border-black/5 relative overflow-hidden"
           >
             {/* Header */}
             <header className="flex justify-center items-center p-4 gap-10 relative ">
@@ -366,7 +368,7 @@ export default function ChatBot({
             {/* Input */}
             <form
               onSubmit={sendMessage}
-              className="p-4 border-t border-red-400 sticky bottom-0 bg-white"
+              className="p-4 border-t border-black/10 sticky bottom-0 bg-white"
             >
               <div className="flex items-center gap-2 min-h-[40px]">
                 <input
@@ -392,7 +394,7 @@ export default function ChatBot({
                   <label
                     htmlFor="checkbox"
                     className={`cursor-pointer rounded-sm w-4 h-4 ${
-                      checked ? "bg-[#25D9D8]" : "bg-white"
+                      checked ? "bg-primary" : "bg-white"
                     }`}
                   >
                     <input
@@ -403,15 +405,21 @@ export default function ChatBot({
                       className="hidden"
                     />
                   </label>
-                  <p>Acepto los términos y condiciones</p>
+                  <p>
+                    I accept the
+                    <Link href={"/"} className="text-secondary cursor-pointer">
+                      {" "}
+                      terms and conditions
+                    </Link>
+                  </p>
                 </div>
 
                 <button
                   disabled={!checked}
                   onClick={() => setViewTerms(false)}
-                  className="bg-[#25D9D8] text-black rounded-full py-2 px-4 disabled:bg-[#ccc] cursor-pointer"
+                  className="bg-primary text-white rounded-full py-2 px-4 disabled:opacity-50 cursor-pointer"
                 >
-                  Guardar
+                  Accept and Save
                 </button>
               </div>
             )}
@@ -420,11 +428,18 @@ export default function ChatBot({
       </AnimatePresence>
 
       <button
-        className="bg-[#25D9D8] rounded-full p-3 cursor-pointer  shadow-lg hover:bg-[#25D9D8]/90 transition-colors w-14 h-14 flex justify-center items-center active:scale-95 z-20"
+        className="bg-primary  rounded-full p-3 cursor-pointer  shadow-lg hover:bg-primary/90 transition-colors w-14 h-14 flex justify-center items-center active:scale-95 z-20"
         onClick={toggleChat}
         name="open-chat"
       >
-        <IconMessageChatbot className="w-full h-full" />
+        <Image
+          src={logoUserBot}
+          width={250}
+          height={250}
+          alt=""
+          className="size-full object-contain"
+        />
+        {/* <IconMessageChatbot className="w-full h-full" /> */}
       </button>
     </div>
   );

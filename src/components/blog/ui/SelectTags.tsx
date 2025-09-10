@@ -95,7 +95,7 @@ export default function SelectTags({
   }, [open]);
 
   return (
-    <div className="select-container min-w-max w-full max-h-max flex justify-between items-center gap-3 bg-active py-3 px-5 rounded-[22px] relative transition-all bg-black border border-black">
+    <div className="select-container min-w-max w-full max-h-max flex justify-between items-center gap-3 bg-active py-3 px-5 rounded-[22px] relative transition-all bg-white border border-[#ccc]">
       <div>
         <p className="text-[#999] text-[10px] font-medium text-start">
           {label}
@@ -106,13 +106,13 @@ export default function SelectTags({
             selectedTags.map((tag) => (
               <div
                 key={tag.id}
-                className="w-max text-sm flex justify-between gap-4 items-center  bg-active text-white py-2 px-3 rounded-3xl focus-within:border-primary border-active bg-white/10 border border-white/10 backdrop-blur-lg"
+                className="w-max text-sm flex justify-between gap-4 items-center  bg-active text-white py-2 px-3 rounded-3xl focus-within:border-primary border-active bg-primary border border-black/10 backdrop-blur-lg"
               >
                 <span>{tag.nombre}</span>
                 <button
                   type="button"
                   onClick={() => handleRemoveTag(tag.id)}
-                  className="text-red-500 font-bold"
+                  className="text-white font-bold"
                 >
                   <IconX className="size-4" />
                 </button>
@@ -132,11 +132,11 @@ export default function SelectTags({
         {open && (
           <motion.div
             // {...animationFadeInUp()}
-            className="absolute top-[120%] left-0 w-full bg-active py-3 px-5 rounded-3xl z-[1000] overflow-x-hidden bg-white/10 border border-white/10 backdrop-blur-lg"
+            className="absolute top-[120%] left-0 w-full bg-active py-3 px-5 rounded-3xl z-[1000] overflow-x-hidden bg-white shadow-xl backdrop-blur-lg"
           >
             {/* Buscador */}
             {inputSearch && (
-              <div className="mb-3 flex items-center gap-2 bg-background bg-opacity-10 rounded-[14px] px-3 py-3">
+              <div className="mb-3 flex items-center gap-2 bg-background bg-opacity-10 rounded-[14px] px-3 py-3 border border-[#ccc]">
                 <IconSearch size={16} className="text-gray-400" />
                 <input
                   ref={searchInputRef}

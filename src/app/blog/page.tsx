@@ -152,6 +152,15 @@ export default function BlogPage() {
   else
     return (
       <main className="min-h-screen py-40 w-full px-5">
+        <div className="mx-auto max-w-[1280px] mb-10 ">
+          <p className="text-secondary font-medium">Read Our Blog</p>
+          <h1 className="font-zain text-5xl font-bold">Browse Our Resources</h1>
+
+          <p className="opacity-70 mt-2">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry
+          </p>
+        </div>
         {/* Post destacado */}
         {lastPost && (
           <Link
@@ -173,7 +182,7 @@ export default function BlogPage() {
                     {lastPost.titulo}
                   </p>
 
-                  <p className="text-white/80 font-light text-base w-full max-md:w-full max-md:text-sm mb-6">
+                  <p className="text-white/80 font-light text-base w-full max-md:w-full max-md:text-sm mb-6 max-md:hidden">
                     {lastPost.descripcion}
                   </p>
                 </div>
@@ -198,7 +207,7 @@ export default function BlogPage() {
                     </div>
                   </div>
 
-                  <div className="flex justify-end items-center gap-2">
+                  <div className="flex justify-end items-center gap-2 max-md:hidden">
                     {lastPost.categorias
                       ?.slice(0, 3)
                       .map((categoria, index) => (
@@ -243,7 +252,7 @@ export default function BlogPage() {
               <div className="w-full max-w-[200px]">
                 <Select
                   value={selectedTagName}
-                  label={"Tags"}
+                  // label={"Tags"}
                   labelInput={"Name"}
                   messageNoResults={"No results"}
                   options={tags.map((tag: Tag) => ({
@@ -259,7 +268,7 @@ export default function BlogPage() {
               <div className="w-full max-w-[200px]">
                 <Select
                   value={sortOrder === "desc" ? "Newest" : "Oldest"}
-                  label="Orden"
+                  // label="Orden"
                   labelInput=""
                   messageNoResults="No hay resultados"
                   options={orders}
@@ -292,8 +301,8 @@ export default function BlogPage() {
 
             {/* Overlay de filtros en mobile */}
             {showFilters && (
-              <div className="fixed inset-0 bg-black/50 flex justify-end z-[1200]">
-                <div className="w-80 bg-black h-full p-6 flex flex-col gap-6  text-lg bg-gradient-to-b from-transparent to-primary/10 px-5 py-10 rounded-l-2xl transform transition-transform duration-500 ease-in-out border-l border-white/20">
+              <div className="fixed inset-0 bg-black/10 flex justify-end z-[1200]">
+                <div className="w-80 bg-white text-black h-full p-6 flex flex-col gap-6  text-lg bg-gradient-to-b from-transparent to-primary/10 px-5 py-10 rounded-l-2xl transform transition-transform duration-500 ease-in-out border-l border-black/10">
                   {/* Botón cerrar */}
                   <button
                     onClick={() => setShowFilters(false)}
@@ -306,7 +315,7 @@ export default function BlogPage() {
                   <div className="mt-10">
                     <Select
                       value={selectedTagName}
-                      label={"Tags"}
+                      // label={"Tags"}
                       labelInput={"Name"}
                       messageNoResults={"No results"}
                       options={tags.map((tag: Tag) => ({
@@ -322,7 +331,7 @@ export default function BlogPage() {
                   <div>
                     <Select
                       value={sortOrder === "desc" ? "Newest" : "Oldest"}
-                      label="Orden"
+                      // label="Order"
                       labelInput=""
                       messageNoResults="No hay resultados"
                       options={orders}
@@ -347,7 +356,7 @@ export default function BlogPage() {
                       placeholder={"Search article"}
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="select-container w-full max-h-max flex justify-between items-center gap-3 bg-active py-[1.22rem] px-5 rounded-[22px] relative transition-all bg-white/10 border border-white/10 pl-10"
+                      className="select-container w-full max-h-max flex justify-between items-center gap-3 bg-active py-3 px-5 rounded-full relative transition-all  border border-black/10 pl-10"
                     />
                   </form>
                 </div>

@@ -18,7 +18,7 @@ export default function Select({
   labelInput,
   inputSearch = true,
 }: {
-  label: string;
+  label?: string;
   options: Option[];
   onChange: (value: string | number) => void;
   value: string | number;
@@ -106,7 +106,7 @@ export default function Select({
         {open && (
           <motion.div
             // {...animationFadeInUp()}
-            className="absolute top-[120%] left-0 w-[150%] bg-active py-3 px-5 rounded-3xl z-[1000] overflow-x-hidden bg-white shadow"
+            className="absolute top-[120%] left-0 w-[100%] bg-active py-3 px-5 rounded-3xl z-[1000] overflow-x-hidden bg-white shadow-xl border border-black/5"
           >
             {/* Buscador */}
             {inputSearch && (

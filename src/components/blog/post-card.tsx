@@ -28,7 +28,7 @@ interface PostCardProps {
 
 export function PostCard({ post }: PostCardProps) {
   return (
-    <div className="relative border border-transparent w-[400px] h-[550px] max-lg:max-lg:aspect-2/1 max-lg:w-full max-lg:h-max max-md:w-full max-md:aspect-2/3 flex flex-col justify-between items-center ">
+    <div className="relative  w-[400px] h-[550px] max-md:h-[550px] max-lg:max-lg:aspect-2/1 max-lg:w-full max-lg:h-max max-md:w-full max-md:aspect-2/3 flex flex-col justify-between items-center ">
       <Link
         href={`/blog/${post.id}`}
         className="absolute top-0 right-0 z-10 p-6 hover:scale-105 transition-transform active:scale-100"
@@ -47,10 +47,12 @@ export function PostCard({ post }: PostCardProps) {
       />
 
       <div className="z-10 relative w-full bg-transparent h-[20%] flex flex-col justify-start gap-3 mt-2 items-start group-hover: transition-all">
-        <p className="text-secondary font-medium">
+        <p className="text-secondary font-medium text-sm">
           {post.categorias[0].nombre}
         </p>
-        <p className="font-bold font-zain text-2xl leading-7">{post.titulo}</p>
+        <p className="font-bold font-zain text-2xl max-md:leading-6 leading-7 max-md:max-h-[75px] line-clamp-3 ">
+          {post.titulo}
+        </p>
         {/* <p className="opacity-80 font-light line-clamp-2">{post.descripcion}</p> */}
       </div>
     </div>

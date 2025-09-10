@@ -1,7 +1,7 @@
 "use client";
 
 import TagCardList from "@/components/blog/TagCardList";
-import Input from "@/components/ui/Input";
+import Input from "@/components/Input";
 import { IconPlus, IconTag, IconTags } from "@tabler/icons-react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -98,7 +98,7 @@ export default function ListTags() {
 
           <button
             onClick={() => setShowModalCreate(true)}
-            className="bg-primary/10 border border-white/10 text-white px-6 py-3 rounded-full hover:scale-105 active:scale-95 transition-transform cursor-pointer flex justify-center items-center gap-2"
+            className="bg-secondary  text-white px-6 py-3 rounded-full hover:scale-105 active:scale-95 transition-transform cursor-pointer flex justify-center items-center gap-2"
           >
             <IconPlus />
 
@@ -135,11 +135,9 @@ export default function ListTags() {
 
       {/* Modal */}
       {showModalCreate && (
-        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-black/50 z-100">
-          <div className="bg-[#151515] text-white border border-white/10 rounded-2xl p-6 w-[350px] shadow-lg flex flex-col justify-center items-center relative overflow-hidden">
-            <div className="bg-green-400 rounded-full w-[50%] aspect-square absolute -top-[50%] z-0 blur-2xl opacity-30"></div>
-
-            <div className="bg-green-500 rounded-full p-3 mb-4 z-10">
+        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-black/20 shadow z-100">
+          <div className="bg-white text-black border border-white/10 rounded-2xl p-6 w-[350px] shadow-lg flex flex-col justify-center items-center relative overflow-hidden">
+            <div className="bg-primary rounded-full p-3 mb-4 z-10 text-white">
               <IconTag className="size-7" />
             </div>
 
@@ -166,7 +164,7 @@ export default function ListTags() {
               </button>
               <button
                 onClick={handelCreate}
-                className="px-4 py-2 rounded-2xl bg-primary/10 border border-white/10 text-white hover:text-red-200 text-sm cursor-pointer w-[48%] font-medium transition-colors"
+                className="px-4 py-2 rounded-full bg-secondary border border-white/10 text-white hover:text-red-200 text-sm cursor-pointer w-[48%] font-medium transition-colors"
                 disabled={loading}
               >
                 {loadingCreate ? "Creando..." : "Crear"}

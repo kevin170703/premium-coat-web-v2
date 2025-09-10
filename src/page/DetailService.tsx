@@ -30,10 +30,10 @@ export default function DetailService() {
   }
 
   useEffect(() => {
-    if (params) {
+    if (params?.id) {
       const findService =
         services.find(
-          (service) => slugify(service.title) === slugify(params.id.toString())
+          (service) => slugify(service.title) === slugify(params.id!.toString())
         ) || services[0];
       setService(findService);
     }
@@ -62,8 +62,8 @@ export default function DetailService() {
     return null;
   } else
     return (
-      <main className="w-full flex flex-col justify-start items-center text-sm relative min-h-dvh p-2">
-        <section className="w-full h-[60vh] flex justify-center items-center relative bg-[#001D38]/85 p-20 max-lg:p-5 rounded-4xl overflow-hidden">
+      <main className="w-full flex flex-col justify-start items-center text-sm relative min-h-dvh">
+        <section className="w-full h-[60vh] max-lg:max-h-[250px]  flex justify-center items-center relative bg-[#001D38]/85 p-20 max-lg:p-5 overflow-hidden">
           <Image
             width={2000}
             height={2000}
@@ -71,12 +71,28 @@ export default function DetailService() {
             alt="bg-hero"
             className="w-full h-full absolute top-0 right-0 object-cover -z-10 saturate-200"
           />
-          <h1 className="text-white font-zain text-8xl font-semibold text-center z-10 max-lg:text-5xl  lg:max-w-[50%]">
-            {service?.title}
+          <h1 className="text-white font-zain text-8xl font-semibold text-center z-10 max-lg:text-5xl  lg:max-w-[50%] max-lg:pt-10">
+            {service?.title.slice(0, -2)}
+            <span className="text-secondary">{service?.title.slice(-2)}</span>
           </h1>
         </section>
 
-        <section className="w-full flex flex-col justify-start items-center py-20 px-5 gap-30">
+        {/* <section className="px-20 w-full mt-10">
+          <section className="w-full h-[60vh] max-lg:max-h-[250px]  flex justify-center items-center relative bg-[#001D38]/85 p-20 max-lg:p-5 rounded-4xl overflow-hidden ">
+            <Image
+              width={2000}
+              height={2000}
+              src={service.image}
+              alt="bg-hero"
+              className="w-full h-full absolute top-0 right-0 object-cover -z-10 saturate-200"
+            />
+            <h1 className="text-white font-zain text-8xl font-semibold text-center z-10 max-lg:text-5xl  lg:max-w-[50%] max-lg:pt-10">
+              {service?.title}
+            </h1>
+          </section>
+        </section> */}
+
+        <section className="w-full flex flex-col justify-start items-center py-20 gap-30">
           {service.text.map(({ title, text, image }, i) => (
             <div
               key={i}
@@ -85,7 +101,7 @@ export default function DetailService() {
               }`}
               id={slugify(title)}
             >
-              <div className="w-[50%] px-6">
+              <div className="w-[50%] max-lg:w-full max-lg:pt-10 md:px-6 max-lg:px-3">
                 <h2 className="text-5xl font-zain font-semibold">{title}</h2>
                 <p className="text-base opacity-70">{text}</p>
 
@@ -103,7 +119,7 @@ export default function DetailService() {
                 height={900}
                 src={image}
                 alt={service?.title || "image-service"}
-                className="flex-1 h-[500px] aspect-square rounded-3xl saturate-200 object-cover"
+                className="lg:flex-1 h-[500px] max-lg:h-[400px] max-md:h-[300px] lg:aspect-square rounded-3xl saturate-200 object-cover"
               />
 
               <Image

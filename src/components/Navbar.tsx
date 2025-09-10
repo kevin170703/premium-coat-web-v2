@@ -71,17 +71,13 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed text-white w-full px-20  pb-4 flex justify-between items-center gap-10 z-[1000] ${
-        scrolled ? "bg-primary py-6" : "pt-10"
+      className={`fixed text-white w-full px-20 max-md:px-5  pb-4 flex justify-between items-center gap-10 z-[1000] ${
+        scrolled ? "bg-primary py-6" : "pt-10 bg-transparent"
       }`}
     >
       <Link href={"/"}>
         <Image
-          src={
-            (selectLink === "blog" || selectLink === "gallery") && !scrolled
-              ? logoBlack
-              : logoWhite
-          }
+          src={selectLink === "blog" && !scrolled ? logoBlack : logoWhite}
           width={500}
           height={200}
           alt="logoWhite"
@@ -92,16 +88,14 @@ export default function Navbar() {
       <button
         onClick={() => setOpenMenu(true)}
         className={`cursor-pointer ${
-          (selectLink === "blog" || selectLink === "gallery") && !scrolled
-            ? "text-black"
-            : "text-white"
+          selectLink === "blog" && !scrolled ? "text-black" : "text-white"
         }`}
       >
         <IconMenuDeep className="size-10" />
       </button>
 
       {openMenu && (
-        <div className="absolute w-80 space-y-6 h-max  right-11 top-4 rounded-3xl p-6   bg-white shadow-lg text-black">
+        <div className="absolute w-80 max-md:w-full max-md:top-0 max-md:left-0 max-md:rounded-none max-md:h-dvh space-y-6 h-max  right-11 top-4 rounded-3xl p-6 max-md:pt-11 max-md:px-5   bg-white shadow-lg text-black">
           <div className="w-full flex justify-end items-center">
             <button
               onClick={() => setOpenMenu(false)}
@@ -127,9 +121,10 @@ export default function Navbar() {
               </button>
 
               {openMenuServices && (
-                <div className="text-base flex flex-col justify-center items-start gap-y-4 my-4 ml-3 relative">
+                <div className="text-base flex flex-col justify-center items-start gap-y-4 my-4 ml-3 relative max-md:hidden">
                   {services.map((service) => (
                     <button
+                      key={service.title}
                       className={` ${
                         menuSubServices.id === service.id
                           ? "opacity-100 text-secondary"
@@ -154,6 +149,7 @@ export default function Navbar() {
                           <div className="flex flex-col justify-center items-start gap-2 my-1 ml-7 text-black">
                             {service.services.map((subService) => (
                               <Link
+                                key={subService}
                                 href={`/services/${slugify(
                                   service.title
                                 )}?s=${slugify(subService)}`}
@@ -169,6 +165,28 @@ export default function Navbar() {
                           </div>
                         )}
                     </button>
+                  ))}
+                </div>
+              )}
+
+              {openMenuServices && (
+                <div className="text-base flex flex-col justify-center items-start gap-y-4 my-4 ml-3 relative md:hidden">
+                  {services.map((service) => (
+                    <Link
+                      key={service.title}
+                      href={`/services/${slugify(service.title)}`}
+                      className={` ${
+                        menuSubServices.id === service.id
+                          ? "opacity-100 text-secondary"
+                          : "opacity-70"
+                      } hover:opacity-100 text-start cursor-pointer`}
+                      onClick={() => {
+                        setOpenMenuServices(false);
+                        setOpenMenu(false);
+                      }}
+                    >
+                      {service.title}
+                    </Link>
                   ))}
                 </div>
               )}

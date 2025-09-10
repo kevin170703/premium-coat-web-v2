@@ -1,5 +1,5 @@
 import React from "react";
-import bgHero from "@/assets/bg-hero.png";
+import bgHero from "@/assets/bg-hero2.png";
 import bgFreeQuote from "@/assets/bg-free-quote.png";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,7 +25,11 @@ import {
   IconStar,
 } from "@tabler/icons-react";
 import CardWork from "@/components/CardWork";
-import ChatBot from "@/components/ChatBot";
+
+import certification1 from "@/assets/certificates/certification1.webp";
+import certification2 from "@/assets/certificates/certification2.webp";
+import certification3 from "@/assets/certificates/certification3.webp";
+import certification4 from "@/assets/certificates/certification4.webp";
 
 export default function Home() {
   const profiles = [profile1, profile2, profile3];
@@ -147,10 +151,47 @@ export default function Home() {
     },
   ];
 
+  const certificates = [
+    {
+      tags: ["Security", "Security"],
+      title: "Workplace Safety Training",
+      image: certification1.src,
+      completionDate: "20 SEP 2021",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
+    },
+
+    {
+      tags: ["Security", "Security"],
+      title: "Working at Heights Certification",
+      image: certification2.src,
+      completionDate: "20 SEP 2021",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
+    },
+
+    {
+      tags: ["Security", "Security"],
+      title: "Hazardous Material Handling",
+      image: certification3.src,
+      completionDate: "20 SEP 2021",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
+    },
+
+    {
+      tags: ["Security", "Security"],
+      title: "Confined Space Entry & Monitoring",
+      image: certification4.src,
+      completionDate: "20 SEP 2021",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
+    },
+  ];
+
   return (
     <main className="w-full h-max flex flex-col justify-start items-center p-2 overflow-hidden ">
-      <ChatBot />
-      <section className="relative w-full h-[100dvh] text-white p-20 flex flex-col justify-center items-start rounded-4xl overflow-hidden">
+      <section className="relative w-full min-h-dvh text-white p-20 max-lg:p-10 max-md:pt-20 max-md:px-5 flex flex-col justify-center items-start rounded-4xl overflow-hidden">
         <Image
           src={bgHero}
           width={1920}
@@ -161,14 +202,14 @@ export default function Home() {
 
         <div className="space-y-10 flex-1 flex flex-col justify-center items-start">
           <div className="space-y-4">
-            <h1 className="text-9xl font-zain font-bold leading-22">
+            <h1 className="text-9xl max-md:text-5xl max-md:leading-10 font-zain font-bold leading-22">
               Industrial Painting <br /> Experts
             </h1>
 
-            <p className="text-white/80 max-w-[500px]">
+            <p className="text-white/80 w-full max-w-[500px]">
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s
+              industry. Lorem Ipsum has been the industry&apos;s standard dummy
+              text ever since the 1500s
             </p>
           </div>
 
@@ -180,7 +221,7 @@ export default function Home() {
               Discover our projects
             </Link>
 
-            <div className="flex w-max justify-center items-center gap-6">
+            <div className="flex max-md:flex-col max-md:items-start w-max justify-center items-center gap-x-6 gap-y-2">
               <div className="flex justify-center items-center ">
                 {[...profiles, ...profiles].map((profile, index) => (
                   <Image
@@ -193,15 +234,17 @@ export default function Home() {
                   />
                 ))}
               </div>
-              <p className="">+ than 100 satisfied customers</p>
+              <p className="max-md:text-xs">+ than 100 satisfied customers</p>
             </div>
           </div>
         </div>
 
-        <div className="w-full flex justify-between items-center">
-          <p className="font-zain text-3xl">With the confidence of</p>
+        <div className="w-full flex max-lg:flex-col max-lg:items-start gap-y-2 justify-between items-center max-md:hidden">
+          <p className="font-zain text-3xl max-lg:text-xl">
+            With the confidence of
+          </p>
 
-          <div className="flex justify-end items-center gap-30">
+          <div className="flex flex-wrap justify-end items-center gap-30 max-lg:gap-5 max-lg:w-full max-lg:justify-between max-md:justify-start max-md:gap-x-6">
             {brands.map((brands, index) => (
               <Image
                 src={brands}
@@ -209,15 +252,15 @@ export default function Home() {
                 key={index + "brand"}
                 width={700}
                 height={400}
-                className="h-8 w-auto object-cover"
+                className="h-8 max-lg:h-6 max-md:h-4  w-auto object-cover"
               />
             ))}
           </div>
         </div>
       </section>
 
-      <section className="w-full h-dvh min-h-max max-w-[1280px] py-20 flex justify-between items-center gap-20">
-        <div className="flex flex-col justify-center items-start w-[49%] gap-y-6">
+      <section className="w-full h-dvh min-h-max max-w-[1280px] py-20 flex max-lg:flex-col justify-between items-center gap-x-20 gap-y-10 max-lg:px-3">
+        <div className="flex flex-col justify-center items-start w-[49%] max-lg:w-full gap-y-6">
           <span className="text-secondary flex justify-center items-center gap-2 font-zain text-3xl">
             About
             <IconArrowBearRight />
@@ -237,10 +280,11 @@ export default function Home() {
               latest technology and premium materials to ensure long-lasting
               results, even in the most demanding environments. <br /> <br /> We
               take pride in our professionalism, attention to detail, and
-              dedication to customer satisfaction. Whether it's a large-scale
-              industrial facility or specialized equipment, we provide tailored
-              solutions that meet the highest industry standards. At Premium
-              Coat, quality and reliability are at the core of everything we do.
+              dedication to customer satisfaction. Whether it&apos;s a
+              large-scale industrial facility or specialized equipment, we
+              provide tailored solutions that meet the highest industry
+              standards. At Premium Coat, quality and reliability are at the
+              core of everything we do.
             </p>
           </div>
 
@@ -254,17 +298,23 @@ export default function Home() {
 
           <div className="w-full flex justify-between items-center gap-5 pt-10">
             <div>
-              <h3 className="font-zain text-5xl font-semibold">200+</h3>
+              <h3 className="font-zain text-5xl max-md:text-3xl font-semibold">
+                200+
+              </h3>
               <p className="font-medium text-black/70">Projects</p>
             </div>
 
             <div>
-              <h3 className="font-zain text-5xl font-semibold">30 Years</h3>
+              <h3 className="font-zain text-5xl max-md:text-3xl font-semibold">
+                30 Years
+              </h3>
               <p className="font-medium text-black/70">Experiencie</p>
             </div>
 
             <div>
-              <h3 className="font-zain text-5xl font-semibold">4.8/5</h3>
+              <h3 className="font-zain text-5xl max-md:text-3xl font-semibold">
+                4.8/5
+              </h3>
               <p className="font-medium text-black/70">Client Rating</p>
             </div>
           </div>
@@ -298,7 +348,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full h-dvh gap-y-20 min-h-max bg-[#001528] py-20 rounded-4xl flex flex-col justify-center items-center text-white">
+      <section className="w-full h-dvh gap-y-20 min-h-max bg-[#001528] py-20 max-lg:pb-5 rounded-4xl flex flex-col justify-center items-center text-white max-lg:px-5">
         <div className="text-center max-w-[800px] flex flex-col justify-center items-center">
           <span className="text-secondary flex justify-center items-center gap-2 font-zain text-3xl pb-2">
             Services
@@ -312,24 +362,24 @@ export default function Home() {
 
           <p className="text-white/70 w-[70%]">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard
+            industry. Lorem Ipsum has been the industry&apos;s standard
           </p>
         </div>
 
-        <div className="w-full max-w-[1500px] flex">
+        <div className="w-full max-w-[1500px] flex max-lg:flex-col-reverse gap-3">
           <Image
             src={tank1}
             alt=""
             width={900}
             height={1080}
-            className="w-[40%] h-full rounded-3xl object-cover"
+            className="w-[40%] h-full rounded-3xl object-cover max-lg:w-full max-lg:h-[300px]"
           />
           <div className="flex flex-wrap items-center justify-center gap-3">
             {services &&
               services.map((service, index) => (
                 <div
                   key={index}
-                  className="w-[48%] h-[300px] bg-[#001F3C] rounded-3xl pb-10 pt-6 px-6 flex flex-col justify-between items-start"
+                  className="w-[49%] max-md:w-full h-[300px] max-lg:h-[320px] bg-[#001F3C] rounded-3xl pb-10 pt-6 px-6 flex flex-col justify-between items-start"
                 >
                   <IconHome className="size-8" />
                   <div>
@@ -364,7 +414,7 @@ export default function Home() {
 
           <p className="opacity-70 w-[70%]">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard
+            industry. Lorem Ipsum has been the industry&apos;s standard
           </p>
         </div>
 
@@ -373,7 +423,7 @@ export default function Home() {
             services.map((service, index) => (
               <div
                 key={index}
-                className="w-[30%] h-[600px] relative rounded-3xl overflow-hidden flex flex-col justify-end items-start p-6 bg-gradient-to-t from-[#001B35]  to-transparent to-50% "
+                className="w-[30%] max-lg:w-[49%] max-md:w-full h-[600px] relative rounded-3xl overflow-hidden flex flex-col justify-end items-start p-6 bg-gradient-to-t from-[#001B35]  to-transparent to-50% "
               >
                 <Image
                   src={service.image}
@@ -383,8 +433,8 @@ export default function Home() {
                   className="w-full h-full absolute top-0 left-0 object-cover -z-10"
                 />
 
-                <div className="w-full flex justify-between items-center text-white">
-                  <div>
+                <div className="w-full flex justify-between items-end text-white">
+                  <div className="flex-1">
                     <h3 className="text-4xl font-zain">{service.title}</h3>
                     <p className="opacity-70 text-sm">Lorem Ipsum</p>
                   </div>
@@ -401,7 +451,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full h-dvh min-h-max py-20 flex flex-col justify-center items-center space-y-20">
+      <section className="w-full h-dvh min-h-max py-20 flex flex-col justify-center items-center space-y-20 ">
         <div className="text-center max-w-[800px] flex flex-col justify-center items-center">
           <span className="text-secondary flex justify-center items-center gap-2 font-zain text-3xl pb-2">
             Testimonials
@@ -414,7 +464,7 @@ export default function Home() {
 
           <p className="opacity-70 w-[70%]">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard
+            industry. Lorem Ipsum has been the industry&apos;s standard
           </p>
         </div>
 
@@ -523,7 +573,69 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative w-full h-[50dvh] rounded-4xl overflow-hidden my-20 flex flex-col justify-center items-center space-y-20 bg-gradient-to-t from-[#001B35]  to-transparent ">
+      <section className="w-full max-w-[1280px] flex flex-col justify-center items-center gap-y-20 max-lg:px-3">
+        <div className="text-center max-w-[800px] flex flex-col justify-center items-center">
+          <span className="text-secondary flex justify-center items-center gap-2 font-zain text-3xl pb-2">
+            Certificates
+          </span>
+
+          <h2 className="font-zain text-5xl font-bold">
+            Certified Excellence in Every Project
+          </h2>
+
+          <p className="opacity-70 w-[70%]">
+            At Premium Coat, we take quality and safety seriously. Our team is
+            fully trained and certified to meet industry standards, ensuring
+            every project is completed with precision and care
+          </p>
+        </div>
+
+        <div className="w-full flex flex-wrap justify-center items-center gap-3">
+          {certificates.map((certificate) => (
+            <div
+              key={certificate.title}
+              className="bg-[#1E1E1E] text-white rounded-3xl p-6 w-[24%] max-lg:w-[49%] max-md:w-full  flex flex-col justify-center items-center"
+            >
+              <div className="w-full flex justify-start items-center gap-2">
+                {certificate.tags.map((tag, i) => (
+                  <div
+                    key={tag + i}
+                    className="border border-white rounded-full px-4 py-1 text-xs opacity-80"
+                  >
+                    {tag}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex justify-start items-center w-full">
+                <h3 className="font-zain text-3xl font-bold mt-4 w-full line-clamp-2 max-w-[80%] leading-8">
+                  {certificate.title}
+                </h3>
+              </div>
+
+              <Image
+                src={certificate.image}
+                width={500}
+                height={500}
+                alt={`certificate-${certificate.title}`}
+                className="size-40 object-cover rounded-full mt-4"
+              />
+
+              <div className="w-full flex justify-between items-center gap-2 mt-4 font-medium">
+                <p>COMPLETION DATE</p>
+
+                <p>{certificate.completionDate}</p>
+              </div>
+
+              <p className="text-sm font-light mt-2">
+                {certificate.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="relative w-full h-[50dvh] max-md:h-max max-md:py-20 rounded-4xl overflow-hidden my-20 flex flex-col justify-center items-center space-y-20 bg-gradient-to-t from-[#001B35]  to-transparent px-5">
         <Image
           src={bgFreeQuote}
           width={1920}
@@ -536,7 +648,7 @@ export default function Home() {
           <div>
             <h2 className="font-zain text-6xl">Your vision, our commitment</h2>
 
-            <p className="opacity-80">
+            <p className="opacity-80 max-md:hidden">
               Premium Coat delivers professional industrial and commercial
               painting, using advanced techniques and premium materials for
               durable, long-lasting finishes. From large-scale coatings to
@@ -557,7 +669,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full h-dvh min-h-max max-w-[1280px] py-20 flex flex-col justify-center items-center space-y-20">
+      <section
+        id="works"
+        className="w-full h-dvh min-h-max max-w-[1280px] py-20 flex flex-col justify-center items-center space-y-20"
+      >
         <div className="text-center max-w-[800px] flex flex-col justify-center items-center">
           <span className="text-secondary flex justify-center items-center gap-2 font-zain text-3xl pb-2">
             Works

@@ -116,7 +116,7 @@ export default function Contact() {
   }
 
   return (
-    <main className="w-full min-h-dvh flex justify-center items-center  overflow-hidden text-center px-5 relative">
+    <main className="w-full min-h-dvh flex justify-center items-center  overflow-hidden text-center px-2 relative">
       <Image
         width={2000}
         height={2000}
@@ -125,8 +125,8 @@ export default function Contact() {
         className="w-full h-full object-cover absolute top-0 right-0  -z-10"
       />
 
-      <div className="w-full max-w-[1280px] flex flex-col justify-center items-center gap-10 bg-white rounded-4xl p-2 my-40  z-50 max-lg:flex-col max-lg:bg-transparent max-lg:shadow-none max-lg:p-0">
-        <section className="flex justify-center items-center gap-40 py-10">
+      <div className="w-full max-w-[1280px] flex flex-col justify-center items-center gap-10 bg-white rounded-4xl p-2 my-40  z-50 max-lg:flex-col max-lg:shadow-none">
+        <section className="flex max-lg:flex-col justify-center items-center gap-x-40 gap-y-10 py-10 px-3">
           <div className="w-full max-w-[500px] text-start space-y-5">
             <h1 className="text-5xl font-zain font-semibold ">
               Contact us today and transform your space

@@ -8,6 +8,17 @@ import {
 import Image from "next/image";
 
 import bgHero from "@/assets/bg-hero.png";
+import { services } from "@/data/services";
+
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .normalize("NFD") // Elimina acentos
+    .replace(/[\u0300-\u036f]/g, "") // Remueve caracteres diacríticos
+    .replace(/[^\w\s-]/g, "") // Elimina caracteres especiales
+    .replace(/\s+/g, "-") // Reemplaza espacios por guiones
+    .replace(/-+/g, "-"); // Evita múltiples guiones seguidos
+}
 
 export default function Footer() {
   return (
@@ -58,16 +69,23 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex max-lg:flex-col gap-10 text-sm ">
+        <div className="flex max-md:flex-col gap-10 text-sm ">
           <div className="flex flex-col space-y-3">
             <p className="font-zain text-2xl font-semibold">Services</p>
-            <Link href={"/"}>Industrial Painting</Link>
+            {services.map((service) => (
+              <Link
+                key={service.title}
+                href={`/services/${slugify(service.title)}`}
+              >
+                {service.title}
+              </Link>
+            ))}
 
-            <Link href={"/"}>Commercial Painting</Link>
+            {/* <Link href={"/"}>Commercial Painting</Link>
 
             <Link href={"/"}>Metal Deck Ceiling Painting</Link>
 
-            <Link href={"/"}>Tank Painting</Link>
+            <Link href={"/"}>Tank Painting</Link> */}
           </div>
 
           <div className="flex flex-col space-y-3">
