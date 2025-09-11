@@ -54,66 +54,75 @@ import i10 from "@/assets/services/interior/10.webp";
 
 import { useState } from "react";
 import Image from "next/image";
+import { div } from "framer-motion/client";
+import { IconMapPin } from "@tabler/icons-react";
+
+interface ImageItem {
+  src: string;
+  location: string;
+  title?: string;
+  description?: string;
+}
 
 export default function Gallery() {
   const [serviceSelected, setServiceSelected] = useState("interior");
 
-  const images: Record<string, string[]> = {
+  const images: Record<string, ImageItem[]> = {
     interior: [
-      i1.src,
-      i2.src,
-      i9.src,
-      i3.src,
-      i7.src,
-      i5.src,
-      i6.src,
-      i4.src,
-      i8.src,
-      i10.src,
+      { src: i1.src, location: "Living Room", title: "Interior 1" },
+      { src: i2.src, location: "Bedroom", title: "Interior 2" },
+      { src: i9.src, location: "Toronto", title: "Interior 3" },
+      { src: i3.src, location: "Toronto", title: "Interior 4" },
+      { src: i7.src, location: "Toronto", title: "Interior 5" },
+      { src: i5.src, location: "Dining Room", title: "Interior 6" },
+      { src: i6.src, location: "Office", title: "Interior 7" },
+      { src: i4.src, location: "Stairs", title: "Interior 8" },
+      { src: i8.src, location: "Toronto", title: "Interior 9" },
+      { src: i10.src, location: "Toronto", title: "Interior 10" },
     ],
 
     exterior: [
-      ip1.src,
-      ip2.src,
-      e1.src,
-      e2.src,
-      e3.src,
-      e10.src,
-      e4.src,
-      e5.src,
-      e6.src,
-      e7.src,
-      e8.src,
-      e9.src,
+      { src: ip1.src, location: "Front Yard", title: "Exterior 1" },
+      { src: ip2.src, location: "Backyard", title: "Exterior 2" },
+      { src: e1.src, location: "Facade", title: "Exterior 3" },
+      { src: e2.src, location: "Balcony", title: "Exterior 4" },
+      { src: e3.src, location: "Patio", title: "Exterior 5" },
+      { src: e10.src, location: "Pool", title: "Exterior 6" },
+      { src: e4.src, location: "Driveway", title: "Exterior 7" },
+      { src: e5.src, location: "Garage", title: "Exterior 8" },
+      { src: e6.src, location: "Roof", title: "Exterior 9" },
+      { src: e7.src, location: "Terrace", title: "Exterior 10" },
+      { src: e8.src, location: "Garden", title: "Exterior 11" },
+      { src: e9.src, location: "Porch", title: "Exterior 12" },
     ],
 
     commercial: [
-      c10.src,
-      c11.src,
-      c12.src,
-      c13.src,
-      c1.src,
-      c2.src,
-      c24.src,
-      c3.src,
-      c8.src,
-      c22.src,
-      c23.src,
+      { src: c10.src, location: "Storefront", title: "Commercial 1" },
+      { src: c11.src, location: "Office Lobby", title: "Commercial 2" },
+      { src: c12.src, location: "Showroom", title: "Commercial 3" },
+      { src: c13.src, location: "Reception", title: "Commercial 4" },
+      { src: c1.src, location: "Restaurant", title: "Commercial 5" },
+      { src: c2.src, location: "Hotel Lobby", title: "Commercial 6" },
+      { src: c24.src, location: "Café", title: "Commercial 7" },
+      { src: c3.src, location: "Conference Room", title: "Commercial 8" },
+      { src: c8.src, location: "Shopping Mall", title: "Commercial 9" },
+      { src: c22.src, location: "Supermarket", title: "Commercial 10" },
+      { src: c23.src, location: "Coworking", title: "Commercial 11" },
     ],
 
     industrial: [
-      im1.src,
-      im2.src,
-      md1.src,
-      md2.src,
-      im3.src,
-      im4.src,
-      im5.src,
-      im6.src,
-      t1.src,
-      t2.src,
-      t3.src,
-      t4.src,
+      { src: im1.src, location: "Factory Floor", title: "Industrial 1" },
+      { src: im2.src, location: "Warehouse", title: "Industrial 2" },
+      { src: md1.src, location: "Workshop", title: "Industrial 3" },
+      { src: md2.src, location: "Production Line", title: "Industrial 4" },
+      { src: im3.src, location: "Storage Area", title: "Industrial 5" },
+      { src: im4.src, location: "Loading Dock", title: "Industrial 6" },
+      { src: im5.src, location: "Machinery Zone", title: "Industrial 7" },
+      { src: im6.src, location: "Parking Lot", title: "Industrial 8" },
+      { src: t1.src, location: "Tank 1", title: "Industrial 9" },
+      { src: t2.src, location: "Tank 2", title: "Industrial 10" },
+      { src: t3.src, location: "Tank 3", title: "Industrial 11" },
+      { src: t4.src, location: "Tank 4", title: "Industrial 12" },
     ],
   };
 
@@ -277,13 +286,25 @@ export default function Gallery() {
       <section className="w-full columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3 px-5 max-md:px-2">
         {images &&
           images[serviceSelected].map((image, i) => (
-            <img
+            <div
               key={i}
-              src={image}
-              alt=""
-              className="w-full h-auto object-cover rounded-3xl mb-4 cursor-pointer saturate-200"
-              onClick={() => setSelectedImage(image)}
-            />
+              className="relative w-full h-auto  rounded-3xl mb-4 cursor-pointer overflow-hidden"
+            >
+              <div className="w-full h-full absolute bottom-0 left-0 z-20 px-2 p-2 bg-gradient-to-t from-[#001B35]  to-transparent to-20% flex  justify-start items-end text-white">
+                <div className="flex justify-center items-center gap-2">
+                  <div className="bg-secondary rounded-full p-1.5 size-8">
+                    <IconMapPin className="size-full" />
+                  </div>
+                  <p>{image.location}</p>
+                </div>
+              </div>
+              <img
+                src={image.src}
+                alt=""
+                className=" w-full h-auto  object-cover saturate-200 "
+                onClick={() => setSelectedImage(image.src)}
+              />
+            </div>
           ))}
       </section>
 

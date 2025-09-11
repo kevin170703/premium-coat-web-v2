@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import {
   IconArrowLeft,
+  IconCheck,
   IconMessageChatbot,
   IconSend,
   IconUser,
@@ -47,15 +48,18 @@ export default function ChatBot({
 
   const [viewChat, setViewChat] = useState(false);
 
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
 
   const [viewTerms, setViewTerms] = useState(true);
+
+  const [visible, setVisible] = useState(false);
 
   const handleChange = () => {
     setChecked(!checked);
   };
 
   const toggleChat = () => {
+    setVisible(false);
     setViewChat((prev) => !prev);
   };
 
@@ -213,8 +217,25 @@ export default function ChatBot({
     return parts;
   }
 
+  useEffect(() => {
+    // Mostrar después de 4s
+    const showTimer = setTimeout(() => {
+      if (!viewChat) setVisible(true);
+    }, 4000);
+
+    // Ocultar después de 3s visibles
+    const hideTimer = setTimeout(() => {
+      if (!viewChat) setVisible(false);
+    }, 7000); // 4s + 3s visibles
+
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+    };
+  }, [viewChat]);
+
   return (
-    <div className="fixed bottom-4 right-4 flex flex-col items-end gap-2 z-[1100]">
+    <div className="fixed bottom-4 right-4 flex flex-col items-end gap-1 z-[1100]">
       <AnimatePresence>
         {viewChat && (
           <motion.div
@@ -376,7 +397,7 @@ export default function ChatBot({
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder={inputPlaceholder}
-                  className="flex-1 min-w-0 px-4 py-2 bg-white text-black rounded-full focus:outline-none border border-black/10"
+                  className="flex-1 min-w-10 px-4 py-2 bg-white text-black rounded-full focus:outline-none border border-black/10"
                 />
                 <button
                   type="submit"
@@ -390,13 +411,23 @@ export default function ChatBot({
 
             {viewTerms && (
               <div className="flex flex-col justify-center items-center gap-5 p-4 text-sm text-[#444] absolute w-full h-full top-0 left-0 bg-white/50 rounded-3xl backdrop-blur-sm z-10">
+                {/* mesaje */}
+
+                <p className="w-full text-center text-black font-medium text-base">
+                  Hey! 👋 Just a quick step before we chat: <br /> please
+                  confirm that you agree to our terms.
+                </p>
+
                 <div className="flex items-center gap-2">
                   <label
                     htmlFor="checkbox"
-                    className={`cursor-pointer rounded-sm w-4 h-4 ${
-                      checked ? "bg-primary" : "bg-white"
+                    className={`cursor-pointer size-5 rounded-lg p-px border  ${
+                      checked
+                        ? "bg-primary text-white"
+                        : "bg-white text-white border-black/20"
                     }`}
                   >
+                    <IconCheck className="size-full" />
                     <input
                       type="checkbox"
                       id="checkbox"
@@ -406,10 +437,12 @@ export default function ChatBot({
                     />
                   </label>
                   <p>
-                    I accept the
-                    <Link href={"/"} className="text-secondary cursor-pointer">
-                      {" "}
-                      terms and conditions
+                    I agree to the{" "}
+                    <Link
+                      href={"/"}
+                      className="text-secondary cursor-pointer hover:underline"
+                    >
+                      Terms & Conditions
                     </Link>
                   </p>
                 </div>
@@ -427,8 +460,48 @@ export default function ChatBot({
         )}
       </AnimatePresence>
 
+      {/* <div
+        className={`w-full max-w-[450px] flex flex-col justify-center items-start  text-end mr-10  `}
+      >
+        <div
+          className={`break-words  w-max max-w-full py-4 px-6 rounded-4xl leading-relaxed text-sm md:text-base text-white  bg-primary text-start  relative`}
+        >
+          <span
+            className="absolute right-0 bottom-0 translate-x-[10%] translate-y-[10%] 
+                 w-0 h-0 border-b-[16px] border-b-secondary 
+                 border-l-[16px] border-l-transparent 
+                 border-r-0 border-t-0 rounded-sm"
+          ></span>
+
+          <p className="-mb-1">{actionMessage}</p>
+        </div>
+      </div> */}
+
+      <div
+        className={`fixed bottom-19 right-16 transition-transform duration-500 ease-out 
+      ${
+        visible
+          ? "translate-x-0 translate-y-0 opacity-100"
+          : "translate-x-10 translate-y-10 opacity-0"
+      }`}
+      >
+        <div
+          className={`break-words w-max max-w-[450px] py-4 px-6 rounded-4xl leading-relaxed 
+        text-sm md:text-base text-white bg-primary text-start relative shadow-lg`}
+        >
+          <span
+            className="absolute right-0 bottom-0 translate-x-[10%] translate-y-[10%] 
+          w-0 h-0 border-b-[16px] border-b-secondary 
+          border-l-[16px] border-l-transparent 
+          border-r-0 border-t-0 rounded-sm"
+          ></span>
+
+          <p className="-mb-1">{actionMessage}</p>
+        </div>
+      </div>
+
       <button
-        className="bg-primary  rounded-full p-3 cursor-pointer  shadow-lg hover:bg-primary/90 transition-colors w-14 h-14 flex justify-center items-center active:scale-95 z-20"
+        className="bg-primary  rounded-full border-2 border-secondary p-3 cursor-pointer  shadow-lg hover:bg-primary/90 transition-colors w-14 h-14 flex justify-center items-center active:scale-95 z-20"
         onClick={toggleChat}
         name="open-chat"
       >

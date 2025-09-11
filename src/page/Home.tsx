@@ -8,10 +8,14 @@ import profile1 from "@/assets/profiles/1.png";
 import profile2 from "@/assets/profiles/2.png";
 import profile3 from "@/assets/profiles/3.png";
 
-import brand1 from "@/assets/brands/1.png";
-import brand2 from "@/assets/brands/2.png";
-import brand3 from "@/assets/brands/3.png";
-import brand4 from "@/assets/brands/4.png";
+import brand1 from "@/assets/brands-clients/1.png";
+import brand2 from "@/assets/brands-clients/2.png";
+import brand3 from "@/assets/brands-clients/3.png";
+import brand4 from "@/assets/brands-clients/4.png";
+
+import logofacebook from "@/assets/brands/facebook.svg";
+import logoinstagram from "@/assets/brands/instagram.svg";
+import logogoogle from "@/assets/brands/google.svg";
 
 import tank1 from "@/assets/services/tank/1.webp";
 
@@ -49,7 +53,7 @@ export default function Home() {
   const testimonials = [
     {
       id: "1",
-      image: profile1.src,
+      image: logofacebook,
       name: "Northview Consulting",
       position: "Facility Manager",
       testimonial:
@@ -57,7 +61,7 @@ export default function Home() {
     },
     {
       id: "2",
-      image: profile2.src,
+      image: logogoogle.src,
       name: "Stonebridge Supplies",
       position: "Operations Director",
       testimonial:
@@ -66,7 +70,7 @@ export default function Home() {
 
     {
       id: "3",
-      image: profile3.src,
+      image: logogoogle.src,
       name: "Diana Cameron",
       position: "Facility Supervisor",
       testimonial:
@@ -74,7 +78,7 @@ export default function Home() {
     },
     {
       id: "4",
-      image: profile1.src,
+      image: logoinstagram.src,
       name: "Northview Consulting",
       position: "Facility Manager",
       testimonial:
@@ -82,7 +86,7 @@ export default function Home() {
     },
     {
       id: "5",
-      image: profile2.src,
+      image: logofacebook.src,
       name: "Stonebridge Supplies",
       position: "Operations Director",
       testimonial:
@@ -91,7 +95,7 @@ export default function Home() {
 
     {
       id: "6",
-      image: profile3.src,
+      image: logofacebook.src,
       name: "Diana Cameron",
       position: "Facility Supervisor",
       testimonial:
@@ -99,7 +103,7 @@ export default function Home() {
     },
     {
       id: "7",
-      image: profile1.src,
+      image: logoinstagram.src,
       name: "Northview Consulting",
       position: "Facility Manager",
       testimonial:
@@ -107,7 +111,7 @@ export default function Home() {
     },
     {
       id: "8",
-      image: profile2.src,
+      image: logogoogle.src,
       name: "Stonebridge Supplies",
       position: "Operations Director",
       testimonial:
@@ -116,7 +120,7 @@ export default function Home() {
 
     {
       id: "9",
-      image: profile3.src,
+      image: logoinstagram.src,
       name: "Diana Cameron",
       position: "Facility Supervisor",
       testimonial:
@@ -125,7 +129,7 @@ export default function Home() {
 
     {
       id: "10",
-      image: profile3.src,
+      image: logofacebook.src,
       name: "Diana Cameron",
       position: "Facility Supervisor",
       testimonial:
@@ -134,7 +138,7 @@ export default function Home() {
 
     {
       id: "11",
-      image: profile3.src,
+      image: logogoogle.src,
       name: "Diana Cameron",
       position: "Facility Supervisor",
       testimonial:
@@ -143,7 +147,7 @@ export default function Home() {
 
     {
       id: "12",
-      image: profile3.src,
+      image: logogoogle.src,
       name: "Diana Cameron",
       position: "Facility Supervisor",
       testimonial:
@@ -379,11 +383,22 @@ export default function Home() {
               services.map((service, index) => (
                 <div
                   key={index}
-                  className="w-[49%] max-md:w-full h-[300px] max-lg:h-[320px] bg-[#001F3C] rounded-3xl pb-10 pt-6 px-6 flex flex-col justify-between items-start"
+                  className="w-[49%] max-md:w-full h-[300px] max-lg:h-[320px] rounded-3xl  flex flex-col justify-between items-start relative overflow-hidden"
                 >
-                  <IconHome className="size-8" />
-                  <div>
-                    <h3 className="text-4xl font-zain">{service.title}</h3>
+                  <Image
+                    src={service.image}
+                    width={500}
+                    height={500}
+                    alt="bg-service"
+                    className="absolute top-0 left-0 -z-0 w-full h-full object-cover"
+                  />
+
+                  <div className="flex flex-col justify-center items-start relative z-10 w-full h-full bg-gradient-to-r from-[#001F3C] to-[#001F3C] hover:to-[#001F3C]/80 px-6 transition-colors duration-700">
+                    <IconHome className="size-8 " />
+
+                    <h3 className="text-4xl font-zain  pt-6">
+                      {service.title}
+                    </h3>
                     <p className="opacity-70">{service.services.join(", ")}</p>
 
                     <Link
@@ -477,7 +492,7 @@ export default function Home() {
               >
                 <div className="flex justify-start items-center gap-2">
                   <Image
-                    className="w-10 h-auto object-cover"
+                    className="size-8 object-cover"
                     src={review.image}
                     width={250}
                     height={250}
@@ -512,7 +527,7 @@ export default function Home() {
               >
                 <div className="flex justify-start items-center gap-2">
                   <Image
-                    className="w-10 h-auto object-cover"
+                    className="size-8 object-cover"
                     src={review.image}
                     width={250}
                     height={250}
