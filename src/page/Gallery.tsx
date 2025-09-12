@@ -257,10 +257,10 @@ export default function Gallery() {
           Work Performed with Quality <br /> and{" "}
           <span className="text-secondary">Precision</span>
         </h2>
-        <p className="text-lg max-w-[600px]">
+        {/* <p className="text-lg max-w-[600px]">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry.
-        </p>
+        </p> */}
         <div className="w-full overflow-x-auto mt-10">
           <div className="w-full flex justify-center max-md:justify-start items-center gap-4   ">
             {services.map((service) => (
@@ -290,14 +290,14 @@ export default function Gallery() {
               key={i}
               className="relative w-full h-auto  rounded-3xl mb-4 cursor-pointer overflow-hidden"
             >
-              <div className="w-full h-full absolute bottom-0 left-0 z-20 px-2 p-2 bg-gradient-to-t from-[#001B35]  to-transparent to-20% flex  justify-start items-end text-white">
+              {/* <div className="w-full h-full absolute bottom-0 left-0 z-20 px-2 p-2 bg-gradient-to-t from-[#001B35]  to-transparent to-20% flex  justify-start items-end text-white">
                 <div className="flex justify-center items-center gap-2">
                   <div className="bg-secondary rounded-full p-1.5 size-8">
                     <IconMapPin className="size-full" />
                   </div>
                   <p>{image.location}</p>
                 </div>
-              </div>
+              </div> */}
               <img
                 src={image.src}
                 alt=""

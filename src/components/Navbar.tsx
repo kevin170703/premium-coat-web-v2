@@ -72,12 +72,16 @@ export default function Navbar() {
   return (
     <header
       className={`fixed text-white w-full px-20 max-md:px-5  pb-4 flex justify-between items-center gap-10 z-[1000] ${
-        scrolled ? "bg-primary py-6" : "pt-10 bg-transparent"
+        scrolled ? "bg-black/30 backdrop-blur-lg py-6" : "pt-10 bg-transparent"
       }`}
     >
       <Link href={"/"}>
         <Image
-          src={selectLink === "blog" && !scrolled ? logoBlack : logoWhite}
+          src={
+            (selectLink === "blog" || selectLink === "terms") && !scrolled
+              ? logoBlack
+              : logoWhite
+          }
           width={500}
           height={200}
           alt="logoWhite"
@@ -88,7 +92,9 @@ export default function Navbar() {
       <button
         onClick={() => setOpenMenu(true)}
         className={`cursor-pointer ${
-          selectLink === "blog" && !scrolled ? "text-black" : "text-white"
+          (selectLink === "blog" || selectLink === "terms") && !scrolled
+            ? "text-black"
+            : "text-white"
         }`}
       >
         <IconMenuDeep className="size-10" />
@@ -106,13 +112,13 @@ export default function Navbar() {
             </button>
           </div>
           <div className="space-y-2">
-            <div className="uppercase font-medium text-2xl">
+            <div className="uppercase font-medium text-2xl max-2xl:text-xl">
               <Link href={`/`} onClick={() => setOpenMenu(false)}>
                 Home
               </Link>
             </div>
 
-            <div className=" font-medium text-2xl">
+            <div className=" font-medium text-2xl max-2xl:text-xl">
               <button
                 onClick={() => setOpenMenuServices(!openMenuServices)}
                 className="uppercase cursor-pointer"
@@ -121,7 +127,7 @@ export default function Navbar() {
               </button>
 
               {openMenuServices && (
-                <div className="text-base flex flex-col justify-center items-start gap-y-4 my-4 ml-3 relative max-md:hidden">
+                <div className="text-base flex flex-col justify-center items-start gap-y-4 my-4 ml-3 relative max-2xl:hidden">
                   {services.map((service) => (
                     <button
                       key={service.title}
@@ -170,16 +176,12 @@ export default function Navbar() {
               )}
 
               {openMenuServices && (
-                <div className="text-base flex flex-col justify-center items-start gap-y-4 my-4 ml-3 relative md:hidden">
+                <div className="text-base flex flex-col justify-center items-start gap-y-2 my-4 ml-3 relative 2xl:hidden">
                   {services.map((service) => (
                     <Link
                       key={service.title}
                       href={`/services/${slugify(service.title)}`}
-                      className={` ${
-                        menuSubServices.id === service.id
-                          ? "opacity-100 text-secondary"
-                          : "opacity-70"
-                      } hover:opacity-100 text-start cursor-pointer`}
+                      className={`opacity-70 hover:opacity-100 text-start cursor-pointer`}
                       onClick={() => {
                         setOpenMenuServices(false);
                         setOpenMenu(false);
@@ -192,32 +194,32 @@ export default function Navbar() {
               )}
             </div>
 
-            <div className="uppercase font-medium text-2xl">
+            <div className="uppercase font-medium text-2xl max-2xl:text-xl">
               <Link href={`/about`} onClick={() => setOpenMenu(false)}>
                 About
               </Link>
             </div>
 
-            <div className="uppercase font-medium text-2xl">
+            <div className="uppercase font-medium text-2xl max-2xl:text-xl">
               <Link href={`/blog`} onClick={() => setOpenMenu(false)}>
                 Blog
               </Link>
             </div>
 
-            <div className="uppercase font-medium text-2xl">
+            <div className="uppercase font-medium text-2xl max-2xl:text-xl">
               <Link href={`/gallery`} onClick={() => setOpenMenu(false)}>
                 Gallery
               </Link>
             </div>
 
-            <div className="uppercase font-medium text-2xl">
+            <div className="uppercase font-medium text-2xl max-2xl:text-xl">
               <Link href={`/contact`} onClick={() => setOpenMenu(false)}>
                 Contact
               </Link>
             </div>
           </div>
 
-          <div className="space-y-2 text-xs mt-10">
+          <div className="space-y-2 text-xs mt-10 max-2xl:mt-5">
             <p>hello@premiumcoat.ca</p>
 
             <p>+1 (437)-441-2531</p>

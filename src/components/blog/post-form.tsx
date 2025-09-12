@@ -137,10 +137,7 @@ export function PostForm() {
       // 1. Subir imagen a Firebase si hay coverImage (asumo que es un File)
       let imageUrl = "";
       if (coverFile instanceof File) {
-        const imageRef = ref(
-          storage,
-          `premiumcoat-blog/${Date.now()}-${"PRUEBA"}`
-        );
+        const imageRef = ref(storage, `pruebas/${Date.now()}-${"PRUEBA"}`);
         await uploadBytes(imageRef, coverFile);
         imageUrl = await getDownloadURL(imageRef);
       }
@@ -156,6 +153,7 @@ export function PostForm() {
       };
 
       console.log(newPost, "newPost");
+      console.log(token, "token");
 
       // 4. Llamar a tu API con Axios
       const res = await axios.post(

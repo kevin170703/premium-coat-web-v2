@@ -24,6 +24,7 @@ interface Message {
   sent: boolean;
   status: "sending" | "sent" | "error";
   errorMessage?: string;
+  showButtons?: boolean;
 }
 
 export default function ChatBot({
@@ -169,9 +170,9 @@ export default function ChatBot({
 
       // Si es una línea común
       return (
-        <p key={index} className="mb-1">
+        <span key={index} className="mb-1">
           {parseInlineMarkdown(line)}
-        </p>
+        </span>
       );
     });
   }
@@ -217,42 +218,117 @@ export default function ChatBot({
     return parts;
   }
 
+  const handleButtonClick = async (buttonText: string) => {
+    setIsLoadingMessage(true);
+
+    if (!buttonText.trim()) return;
+
+    const newMessage: Message = {
+      id: Date.now().toString(),
+      content: buttonText,
+      timestamp: new Date(),
+      sent: true,
+      status: "sending",
+    };
+
+    setMessages((prev) => [...prev, newMessage]);
+    setInputValue("");
+
+    try {
+      const response = await fetch("/api/send-message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: buttonText,
+          sessionId: sessionId,
+          // sessionId: sessionId.current,
+        }),
+      });
+
+      const data = await response.text();
+
+      if (response.ok) {
+        setMessages((prev) =>
+          prev.map((msg) =>
+            msg.id === newMessage.id ? { ...msg, status: "sent" } : msg
+          )
+        );
+
+        const botReply: Message = {
+          id: Date.now().toString() + "-bot",
+          content: JSON.parse(data).reply,
+          timestamp: new Date(),
+          sent: false,
+          status: "sent",
+        };
+
+        setMessages((prev) => [...prev, botReply]);
+        setIsLoadingMessage(false);
+      } else {
+        setMessages((prev) =>
+          prev.map((msg) =>
+            msg.id === newMessage.id ? { ...msg, status: "sent" } : msg
+          )
+        );
+
+        const botReply: Message = {
+          id: Date.now().toString() + "-bot",
+          content:
+            "At this moment I can't answer your message, please try again later.",
+          timestamp: new Date(),
+          sent: false,
+          status: "sent",
+        };
+
+        setMessages((prev) => [...prev, botReply]);
+        setIsLoadingMessage(false);
+      }
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Error desconocido";
+
+      setMessages((prev) =>
+        prev.map((msg) =>
+          msg.id === newMessage.id
+            ? { ...msg, status: "error", errorMessage }
+            : msg
+        )
+      );
+      setIsLoadingMessage(false);
+    }
+  };
+
   // Initialize with user's greeting and Molokaih Bot response
-  // useEffect(() => {
-  //   if (viewChat && messages.length === 0 && policyAccepted && !showPolicyModal) {
-  //     const currentTime = new Date().toLocaleTimeString([], {
-  //       hour: "2-digit",
-  //       minute: "2-digit",
-  //     });
+  useEffect(() => {
+    if (viewChat && messages.length === 0 && checked && !viewTerms) {
+      setMessages([
+        {
+          id: Date.now().toString(),
+          content:
+            "Hello! 👋 Welcome to ProPaintDesigners. We specialize in professional painting in Toronto and the Greater Toronto Area. Please choose an option to get started:",
+          sent: false,
+          timestamp: new Date(),
+          // isTyping: true,
+          showButtons: false,
+          status: "sent",
+        },
+      ]);
+      // setSessionId(generateSessionId());
 
-  //     setMessages([
-  //       {
-  //         text: "Hi",
-  //         isUser: true,
-  //         timestamp: currentTime,
-  //       },
-  //       {
-  //         text: t("bots.molokaih.saludo"),
-  //         isUser: false,
-  //         timestamp: currentTime,
-  //         isTyping: true,
-  //         showButtons: false,
-  //       },
-  //     ]);
-  //     setSessionId(generateSessionId());
-
-  //     // Remove typing animation and show buttons after 2 seconds
-  //     setTimeout(() => {
-  //       setMessages((prev) =>
-  //         prev.map((msg, index) =>
-  //           index === prev.length - 1
-  //             ? { ...msg, isTyping: false, showButtons: true }
-  //             : msg
-  //         )
-  //       );
-  //     }, 2000);
-  //   }
-  // }, [viewChat, checked, viewTerms]);
+      // Remove typing animation and show buttons after 2 seconds
+      setTimeout(() => {
+        setMessages((prev) =>
+          prev.map((msg, index) =>
+            index === prev.length - 1
+              ? { ...msg, isTyping: false, showButtons: true }
+              : msg
+          )
+        );
+      }, 500);
+    }
+  }, [viewChat, checked, viewTerms]);
 
   useEffect(() => {
     // Mostrar después de 4s
@@ -271,6 +347,25 @@ export default function ChatBot({
     };
   }, [viewChat]);
 
+  const buttonKeys = ["button1", "button2", "button3"];
+
+  const buttons = [
+    {
+      text: "Interior Painting",
+      messageSend: "Interior Painting",
+    },
+
+    {
+      text: "Exterior Painting",
+      messageSend: "Exterior Painting",
+    },
+
+    {
+      text: "Commercial Painting",
+      messageSend: "Commercial Painting",
+    },
+  ];
+
   return (
     <div className="fixed bottom-4 right-4 flex flex-col items-end gap-1 z-[900]">
       <AnimatePresence>
@@ -281,7 +376,7 @@ export default function ChatBot({
             animate={{ y: 0, x: 0, scale: 1, opacity: 1 }}
             exit={{ y: 50, x: 10, scale: 0.5, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="flex flex-col w-[400px] h-[600px] max-md:max-w-[91dvw] max-md:h-[85dvh] bg-white text-black rounded-3xl shadow-2xl border border-black/5 relative overflow-hidden"
+            className="flex flex-col w-[400px] h-[600px] max-h-[600px] max-md:max-w-[91dvw] max-md:h-[74dvh] max-2xl:h-[74dvh] bg-white text-black rounded-3xl shadow-2xl border border-black/5 relative overflow-hidden"
           >
             {/* Header */}
             <header className="flex justify-center items-center p-4 gap-10 relative ">
@@ -338,6 +433,28 @@ export default function ChatBot({
                             {formatMessageText(message.content)}
                           </p>
                         </div>
+
+                        {/* Service Buttons */}
+                        {message.showButtons && (
+                          <div className="mt-3 flex items-start gap-2 justify-start z-[70]">
+                            {/* <div className="w-6 sm:w-8 bg-red-400"></div> */}
+                            <div className="grid grid-cols-1 gap-2 max-w-[75%] sm:max-w-[70%]">
+                              {buttonKeys.map((key, i) => (
+                                <button
+                                  key={buttons[i].text}
+                                  onClick={() =>
+                                    handleButtonClick(buttons[i].messageSend)
+                                  }
+                                  className="flex items-center gap-2 p-2 sm:p-3 rounded-3xl transition-all duration-300 text-left pointer-events-auto bg-primary w-max hover:ring-2 hover:ring-white/30 cursor-pointer"
+                                >
+                                  <div className="text-white font-medium text-xs sm:text-sm truncate">
+                                    {buttons[i].text}
+                                  </div>
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        )}
 
                         {!message.sent ? (
                           <div className="flex justify-start items-center gap-2 mt-2">
@@ -476,7 +593,7 @@ export default function ChatBot({
                   <p>
                     I agree to the{" "}
                     <Link
-                      href={"/"}
+                      href={"/terms"}
                       className="text-secondary cursor-pointer hover:underline"
                     >
                       Terms & Conditions
@@ -515,7 +632,7 @@ export default function ChatBot({
       </div> */}
 
       <div
-        className={`fixed bottom-19 right-16 transition-transform duration-500 ease-out 
+        className={`max-md:max-w-[280px] fixed bottom-19 right-16 transition-transform duration-500 ease-out 
       ${
         visible
           ? "translate-x-0 translate-y-0 opacity-100"
@@ -523,7 +640,7 @@ export default function ChatBot({
       }`}
       >
         <div
-          className={`break-words w-max max-w-[450px] py-4 px-6 rounded-4xl leading-relaxed 
+          className={`break-words w-full max-w-[450px] py-4 px-6 rounded-4xl leading-relaxed 
         text-sm md:text-base text-white bg-primary text-start relative shadow-lg`}
         >
           <span

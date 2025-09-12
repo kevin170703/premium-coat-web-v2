@@ -4,6 +4,9 @@ import React from "react";
 import bgHero from "@/assets/bg-hero2.png";
 
 import tank1 from "@/assets/services/tank/1.webp";
+import industrialMachine1 from "@/assets/services/industrial-machine/1.webp";
+import commercial1 from "@/assets/services/commercial/1.webp";
+
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
 
@@ -63,7 +66,7 @@ export default function About() {
           />
           <div className="flex-1 h-full flex flex-col justify-between items-center gap-y-3">
             <Image
-              src={tank1}
+              src={industrialMachine1}
               alt=""
               width={900}
               height={1080}
@@ -71,7 +74,7 @@ export default function About() {
             />
 
             <Image
-              src={tank1}
+              src={commercial1}
               alt=""
               width={900}
               height={1080}

@@ -22,7 +22,7 @@ function slugify(text: string) {
 
 export default function Footer() {
   return (
-    <footer className="w-full px-60 max-lg:px-5 bg-[#001D38]/80  text-white relative">
+    <footer className="w-full px-60 max-2xl:px-5 bg-[#001D38]/80  text-white relative">
       <Image
         src={bgHero}
         width={1920}
@@ -96,8 +96,9 @@ export default function Footer() {
 
           <div className="flex flex-col gap-y-3 gap-x-4">
             <p className="font-zain text-2xl font-semibold">Links</p>
-
             <Link href={"/"}>Home</Link>
+
+            <Link href={"/"}>About</Link>
 
             <Link href={"/"}>Blog</Link>
 

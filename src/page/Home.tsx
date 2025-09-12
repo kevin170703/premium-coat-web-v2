@@ -12,12 +12,19 @@ import brand1 from "@/assets/brands-clients/1.png";
 import brand2 from "@/assets/brands-clients/2.png";
 import brand3 from "@/assets/brands-clients/3.png";
 import brand4 from "@/assets/brands-clients/4.png";
+// import brand5 from "@/assets/brands-clients/5.png";
+// import brand6 from "@/assets/brands-clients/6.png";
+// import brand7 from "@/assets/brands-clients/7.webp";
 
 import logofacebook from "@/assets/brands/facebook.svg";
 import logoinstagram from "@/assets/brands/instagram.svg";
 import logogoogle from "@/assets/brands/google.svg";
 
 import tank1 from "@/assets/services/tank/1.webp";
+import industrialMachine1 from "@/assets/services/industrial-machine/1.webp";
+import commercial1 from "@/assets/services/commercial/1.webp";
+
+// import logoBg from "@/assets/logos/isotipo-blue.png";
 
 import { works } from "@/data/works";
 import { services } from "@/data/services";
@@ -38,7 +45,7 @@ import certification4 from "@/assets/certificates/certification4.webp";
 export default function Home() {
   const profiles = [profile1, profile2, profile3];
 
-  const brands = [brand1, brand2, brand3, brand4];
+  // const brands = [brand1, brand2, brand3, brand4];
 
   function slugify(text: string) {
     return text
@@ -194,7 +201,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="w-full h-max flex flex-col justify-start items-center p-2 overflow-hidden ">
+    <main className=" w-full h-max flex flex-col justify-start items-center p-2 overflow-hidden ">
       <section className="relative w-full min-h-dvh text-white p-20 max-lg:p-10 max-md:pt-20 max-md:px-5 flex flex-col justify-center items-start rounded-4xl overflow-hidden">
         <Image
           src={bgHero}
@@ -206,7 +213,7 @@ export default function Home() {
 
         <div className="space-y-10 flex-1 flex flex-col justify-center items-start">
           <div className="space-y-4">
-            <h1 className="text-9xl max-md:text-5xl max-md:leading-10 font-zain font-bold leading-22">
+            <h1 className="text-9xl max-md:text-5xl max-2xl:text-8xl max-2xl:leading-18 max-md:leading-10 font-zain font-bold leading-22">
               Industrial Painting <br /> Experts
             </h1>
 
@@ -233,7 +240,7 @@ export default function Home() {
                     alt=""
                     width={250}
                     height={250}
-                    className="size-8 -mr-3"
+                    className="size-8 w-auto -mr-3"
                   />
                 ))}
               </div>
@@ -242,7 +249,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-full flex max-lg:flex-col max-lg:items-start gap-y-2 justify-between items-center max-md:hidden">
+        {/* <div className="w-full flex max-2xl:flex-col max-2xl:items-start gap-y-2 justify-between items-center max-md:hidden">
           <p className="font-zain text-3xl max-lg:text-xl">
             With the confidence of
           </p>
@@ -255,14 +262,21 @@ export default function Home() {
                 key={index + "brand"}
                 width={700}
                 height={400}
-                className="h-8 max-lg:h-6 max-md:h-4  w-auto object-cover"
+                className="h-8 max-2xl:h-6 max-md:h-4  w-auto object-cover"
               />
             ))}
           </div>
-        </div>
+        </div> */}
       </section>
 
-      <section className="w-full h-dvh min-h-max max-w-[1280px] py-20 flex max-lg:flex-col justify-between items-center gap-x-20 gap-y-10 max-lg:px-3">
+      <section className="relative w-full h-dvh min-h-max max-w-[1280px] py-20 flex max-lg:flex-col justify-between items-center gap-x-20 gap-y-10 max-lg:px-3">
+        {/* <Image
+          width={500}
+          height={500}
+          alt="lofo"
+          src={logoBg}
+          className="absolute top-1/2 -left-[10%] opacity-10 w-30 h-auto rotate-45 -z-10"
+        /> */}
         <div className="flex flex-col justify-center items-start w-[49%] max-lg:w-full gap-y-6">
           <span className="text-secondary flex justify-center items-center gap-2 font-zain text-3xl">
             About
@@ -329,7 +343,7 @@ export default function Home() {
           />
           <div className="flex-1 h-full flex flex-col justify-between items-center gap-y-3">
             <Image
-              src={tank1}
+              src={industrialMachine1}
               alt=""
               width={900}
               height={1080}
@@ -337,7 +351,7 @@ export default function Home() {
             />
 
             <Image
-              src={tank1}
+              src={commercial1}
               alt=""
               width={900}
               height={1080}
@@ -366,7 +380,7 @@ export default function Home() {
 
         <div className="w-full max-w-[1500px] flex max-lg:flex-col-reverse gap-3">
           <Image
-            src={tank1}
+            src={industrialMachine1}
             alt=""
             width={900}
             height={1080}

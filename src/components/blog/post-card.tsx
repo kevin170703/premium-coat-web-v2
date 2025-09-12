@@ -39,8 +39,8 @@ export function PostCard({ post }: PostCardProps) {
       </Link>
 
       <Image
-        width={500}
-        height={500}
+        width={700}
+        height={700}
         alt={post.titulo}
         src={post.imagenes[0].url}
         className="w-full flex-1 object-cover z-0 group-hover:opacity-60 duration-400 transition-all rounded-4xl border border-white/10"
