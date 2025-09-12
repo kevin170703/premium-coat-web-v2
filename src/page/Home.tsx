@@ -263,7 +263,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* <div className="w-full flex max-2xl:flex-col max-2xl:items-start gap-y-2 justify-between items-center max-md:hidden">
+        <div className="w-full flex max-2xl:flex-col max-2xl:items-start gap-y-2 justify-between items-center max-md:hidden">
           <p className="font-zain text-3xl max-lg:text-xl">
             With the confidence of
           </p>
@@ -280,7 +280,7 @@ export default function Home() {
               />
             ))}
           </div>
-        </div> */}
+        </div>
       </section>
 
       <section className="relative w-full h-dvh min-h-max max-w-[1280px] py-20 flex max-lg:flex-col justify-between items-center gap-x-20 gap-y-10 max-lg:px-3">
@@ -643,7 +643,7 @@ export default function Home() {
             <IconArrowRight className="-rotate-45" />
           </Link>
 
-          <p>Prefer to chat first ? Call our : 01234 XXXX XX</p>
+          <p>Prefer to chat first ? Call our : +1 (437)-441-2531</p>
         </div>
       </section>
 

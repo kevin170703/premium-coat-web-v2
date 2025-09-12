@@ -335,7 +335,7 @@ export default function ChatBot({
     // Ocultar después de 3s visibles
     const hideTimer = setTimeout(() => {
       if (!viewChat) setVisible(false);
-    }, 7000); // 4s + 3s visibles
+    }, 15000); // 4s + 3s visibles
 
     return () => {
       clearTimeout(showTimer);
