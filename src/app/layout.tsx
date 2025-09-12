@@ -1,8 +1,5 @@
 import { Zain, Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import ChatBot from "@/components/ChatBot";
 import { Metadata } from "next";
 import ClientLayout from "@/components/ClientLayout";
 

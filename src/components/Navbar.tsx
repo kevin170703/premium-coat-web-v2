@@ -193,6 +193,12 @@ export default function Navbar() {
             </div>
 
             <div className="uppercase font-medium text-2xl">
+              <Link href={`/about`} onClick={() => setOpenMenu(false)}>
+                About
+              </Link>
+            </div>
+
+            <div className="uppercase font-medium text-2xl">
               <Link href={`/blog`} onClick={() => setOpenMenu(false)}>
                 Blog
               </Link>

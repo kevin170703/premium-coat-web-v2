@@ -18,7 +18,7 @@ export default function TagCardList({
 
       setLoading(true);
       await axios.delete(
-        `https://blog-molokaih.onrender.com/api/categorias/${id}`,
+        `https://blog-premium-coat.onrender.com/api/categorias/${id}`,
         {
           headers: {
             "Content-Type": "application/json",

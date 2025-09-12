@@ -33,7 +33,7 @@ export default function Footer() {
 
       <div className="w-full flex flex-wrap gap-y-10 justify-between items-start pt-20 pb-10 ">
         <div className="max-lg:w-full lg:flex-1 space-y-4">
-          <div className="max-w-[40%] max-md:max-w-full">
+          <div className="max-w-[42%] max-md:max-w-full">
             <Image
               src={logoWhite}
               width={500}
@@ -42,8 +42,8 @@ export default function Footer() {
               className="h-15 w-auto"
             />
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard
+              High-quality coatings and professional finishes for residential,
+              commercial, and industrial projects in Toronto and across Ontario.
             </p>
           </div>
           <div className="flex justify-start items-center gap-2 ">

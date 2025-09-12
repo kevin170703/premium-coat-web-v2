@@ -34,7 +34,7 @@ export default function ListTags() {
       const token = localStorage.getItem("token");
       setLoadingCreate(true);
       await axios.post(
-        `https://blog-molokaih.onrender.com/api/categorias`,
+        `https://blog-premium-coat.onrender.com/api/categorias`,
         {
           nombre: nameNewTag,
         },
@@ -58,7 +58,7 @@ export default function ListTags() {
 
   async function getTags() {
     const { data } = await axios.get(
-      "https://blog-molokaih.onrender.com/api/categorias"
+      "https://blog-premium-coat.onrender.com/api/categorias"
     );
     // const data = {
     //   data: [
@@ -118,9 +118,7 @@ export default function ListTags() {
         ) : tags.length <= 0 ? (
           <div className="w-full h-full flex flex-col justify-center items-center">
             <div className="relative size-24 flex justify-center items-center">
-              <div className="bg-yellow-400 rounded-full w-[100%] aspect-square absolute z-0 blur-2xl opacity-30"></div>
-
-              <IconTags className="size-20 text-yellow-200" strokeWidth={1} />
+              <IconTags className="size-20 text-yellow-400" strokeWidth={1} />
             </div>
             <p className="text-2xl font-medium">No se encontraron etiquetas</p>
           </div>

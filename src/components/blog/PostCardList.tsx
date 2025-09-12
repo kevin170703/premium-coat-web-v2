@@ -24,7 +24,7 @@ export default function PostCardList({
 
       setLoading(true);
       await axios.delete(
-        `https://blog-molokaih.onrender.com/api/posteos/${id}`,
+        `https://blog-premium-coat.onrender.com/api/posteos/${id}`,
         {
           headers: {
             "Content-Type": "application/json",

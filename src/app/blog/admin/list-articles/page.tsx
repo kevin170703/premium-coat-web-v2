@@ -31,7 +31,7 @@ export default function ListPostsPage() {
 
   async function getPosts() {
     const { data } = await axios.get(
-      "https://blog-molokaih.onrender.com/api/posteos"
+      "https://blog-premium-coat.onrender.com/api/posteos"
     );
 
     setPosts(data.data);
@@ -66,9 +66,7 @@ export default function ListPostsPage() {
         ) : posts.length <= 0 ? (
           <div className="w-full h-full flex flex-col justify-center items-center">
             <div className="relative size-24 flex justify-center items-center">
-              <div className="bg-yellow-400 rounded-full w-[100%] aspect-square absolute z-0 blur-2xl opacity-30"></div>
-
-              <IconNews className="size-20 text-yellow-200" strokeWidth={1} />
+              <IconNews className="size-20 text-yellow-400" strokeWidth={1} />
             </div>
             <p className="text-2xl font-medium">No se encontraron posts</p>
           </div>

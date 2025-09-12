@@ -28,31 +28,27 @@ export default function About() {
         <div className="flex flex-col justify-center items-start w-[49%] max-lg:w-full gap-y-6">
           <div>
             <h2 className="font-zain text-5xl font-bold">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              Premium Coat delivers expert painting services with lasting
+              quality and care.
             </h2>
-            <p>
-              At Premium Coat, we are committed to delivering top-quality
-              industrial and commercial painting solutions. With years of
-              experience in the industry, we specialize in protective coatings,
-              surface restoration, and high-performance finishes that enhance
-              both aesthetics and durability. Our team of experts uses the
-              latest technology and premium materials to ensure long-lasting
-              results, even in the most demanding environments. <br /> <br /> We
-              take pride in our professionalism, attention to detail, and
-              dedication to customer satisfaction. Whether it&apos;s a
-              large-scale industrial facility or specialized equipment, we
-              provide tailored solutions that meet the highest industry
-              standards. At Premium Coat, quality and reliability are at the
-              core of everything we do.
+            <p className="text-lg">
+              At Premium Coat, we provide high-quality industrial, commercial,
+              and residential painting services in Toronto and across Ontario.
+              With decades of experience, our team is dedicated to precision,
+              durability, and customer satisfaction. Using premium coatings,
+              modern equipment, and proven techniques, we deliver finishes
+              designed to last. From factories and pipelines to office spaces
+              and custom homes, we handle every project with care and expertise,
+              always focused on enhancing the appearance and protection of every
+              surface.
             </p>
           </div>
 
           <Link
-            href={"/#works"}
+            href={"/contact"}
             className="bg-secondary rounded-full px-6 py-4 flex text-white font-medium gap-2"
           >
-            Go to About us Page
+            Contact us
             <IconArrowRight />
           </Link>
         </div>
@@ -91,12 +87,12 @@ export default function About() {
             200+
           </h3>
           <p className="font-medium text-black/70 max-w-[500px]">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged
+            With more than 200 projects successfully completed across Toronto
+            and Ontario, Premium Coat has built a reputation for reliability,
+            precision, and craftsmanship. From industrial warehouses and
+            commercial offices to residential spaces, each project reflects our
+            commitment to quality and lasting protection, ensuring every surface
+            looks its best for years to come.
           </p>
         </div>
 
@@ -105,14 +101,11 @@ export default function About() {
             30 Years
           </h3>
           <p className="font-medium text-black/70 max-w-[500px]">
-            With over 30 years of experience in the industrial and commercial
-            sectors, we have successfully completed more than 1,000 projects,
-            working with hundreds of satisfied clients across the region. Our
-            team brings decades of expertise, using industry-leading techniques
-            and high-quality materials to ensure durability and precision in
-            every job. From large-scale industrial facilities to specialized
-            equipment, we have the knowledge and skill to deliver long-lasting
-            results that meet the highest standards.
+            With over 30 years in the industry, Premium Coat has successfully
+            completed more than 200 projects across Toronto and Ontario. As
+            trusted home painters, exterior house painters, and commercial
+            painting contractors in Toronto, we bring professionalism and
+            consistent results that meet the highest standards.
           </p>
         </div>
 
@@ -121,22 +114,25 @@ export default function About() {
             4.8/5
           </h3>
           <p className="font-medium text-black/70 max-w-[500px]">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged
+            With an outstanding 4.8 out of 5 average client rating, Premium Coat
+            is trusted by homeowners, businesses, and contractors alike for
+            delivering consistent results that exceed expectations. Our
+            dedication to customer satisfaction, attention to detail, and
+            professional service have made us one of the most highly rated
+            painting companies in Toronto and Ontario.
           </p>
         </div>
       </section>
 
       <section className="w-full max-w-[1280px] flex flex-col justify-center items-center pb-20 pt-30 max-lg:px-5">
-        <h2 className="text-5xl font-zain font-bold">Our Location</h2>
+        <h2 className="text-5xl font-zain font-bold">
+          {" "}
+          Serving Ontario & Nearby Regions
+        </h2>
 
         <p className="text-text-secondary opacity-70 text-base mb-5 max-w-[500px] text-center">
-          We are Toronto-based painters serving Canadian clients throughout
-          Toronto, GTA, and most of Ontario.
+          Proudly based in Toronto, delivering professional painting services
+          across Ontario and extending to other Canadian cities.
         </p>
 
         <iframe

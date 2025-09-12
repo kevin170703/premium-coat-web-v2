@@ -137,8 +137,10 @@ export function PostForm() {
       // 1. Subir imagen a Firebase si hay coverImage (asumo que es un File)
       let imageUrl = "";
       if (coverFile instanceof File) {
-        console.log("entre a crear imagen");
-        const imageRef = ref(storage, `pruebas/${Date.now()}-${"PRUEBA"}`);
+        const imageRef = ref(
+          storage,
+          `premiumcoat-blog/${Date.now()}-${"PRUEBA"}`
+        );
         await uploadBytes(imageRef, coverFile);
         imageUrl = await getDownloadURL(imageRef);
       }
@@ -157,7 +159,7 @@ export function PostForm() {
 
       // 4. Llamar a tu API con Axios
       const res = await axios.post(
-        "https://blog-molokaih.onrender.com/api/posteos",
+        "https://blog-premium-coat.onrender.com/api/posteos",
         newPost,
         {
           headers: {
@@ -232,7 +234,7 @@ export function PostForm() {
 
   async function getTags() {
     const { data } = await axios.get(
-      "https://blog-molokaih.onrender.com/api/categorias"
+      "https://blog-premium-coat.onrender.com/api/categorias"
     );
 
     if (data.length >= 0) {

@@ -217,6 +217,43 @@ export default function ChatBot({
     return parts;
   }
 
+  // Initialize with user's greeting and Molokaih Bot response
+  // useEffect(() => {
+  //   if (viewChat && messages.length === 0 && policyAccepted && !showPolicyModal) {
+  //     const currentTime = new Date().toLocaleTimeString([], {
+  //       hour: "2-digit",
+  //       minute: "2-digit",
+  //     });
+
+  //     setMessages([
+  //       {
+  //         text: "Hi",
+  //         isUser: true,
+  //         timestamp: currentTime,
+  //       },
+  //       {
+  //         text: t("bots.molokaih.saludo"),
+  //         isUser: false,
+  //         timestamp: currentTime,
+  //         isTyping: true,
+  //         showButtons: false,
+  //       },
+  //     ]);
+  //     setSessionId(generateSessionId());
+
+  //     // Remove typing animation and show buttons after 2 seconds
+  //     setTimeout(() => {
+  //       setMessages((prev) =>
+  //         prev.map((msg, index) =>
+  //           index === prev.length - 1
+  //             ? { ...msg, isTyping: false, showButtons: true }
+  //             : msg
+  //         )
+  //       );
+  //     }, 2000);
+  //   }
+  // }, [viewChat, checked, viewTerms]);
+
   useEffect(() => {
     // Mostrar después de 4s
     const showTimer = setTimeout(() => {
@@ -235,7 +272,7 @@ export default function ChatBot({
   }, [viewChat]);
 
   return (
-    <div className="fixed bottom-4 right-4 flex flex-col items-end gap-1 z-[1100]">
+    <div className="fixed bottom-4 right-4 flex flex-col items-end gap-1 z-[900]">
       <AnimatePresence>
         {viewChat && (
           <motion.div

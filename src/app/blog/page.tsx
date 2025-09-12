@@ -58,7 +58,7 @@ export default function BlogPage() {
 
   async function getTags() {
     const { data } = await axios.get(
-      "https://blog-molokaih.onrender.com/api/categorias"
+      "https://blog-premium-coat.onrender.com/api/categorias"
     );
 
     if (data.length >= 0) {
@@ -90,7 +90,7 @@ export default function BlogPage() {
 
     // Llamada con axios
     const { data } = await axios.get(
-      "https://blog-molokaih.onrender.com/api/posteos",
+      "https://blog-premium-coat.onrender.com/api/posteos",
       { params }
     );
 
@@ -156,9 +156,9 @@ export default function BlogPage() {
           <p className="text-secondary font-medium">Read Our Blog</p>
           <h1 className="font-zain text-5xl font-bold">Browse Our Resources</h1>
 
-          <p className="opacity-70 mt-2">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
+          <p className="opacity-70 mt-2 max-w-[600px]">
+            Stay updated with expert tips, industry insights, and helpful guides
+            designed to keep your projects running smoothly.
           </p>
         </div>
         {/* Post destacado */}
@@ -368,10 +368,8 @@ export default function BlogPage() {
             <div className="py-40 w-full px-5 flex justify-center items-center">
               <div className="w-full h-full flex flex-col justify-center items-center">
                 <div className="relative size-24 flex justify-center items-center">
-                  <div className="bg-yellow-400 rounded-full w-[100%] aspect-square absolute z-0 blur-2xl opacity-30"></div>
-
                   <IconNews
-                    className="size-20 text-yellow-200"
+                    className="size-20 text-yellow-400"
                     strokeWidth={1}
                   />
                 </div>

@@ -39,7 +39,7 @@ export default function PostDetailPage() {
     setLoading(true);
 
     const { data } = await axios.get(
-      `https://blog-molokaih.onrender.com/api/posteos/${id}`
+      `https://blog-premium-coat.onrender.com/api/posteos/${id}`
     );
 
     setPost(data.data);

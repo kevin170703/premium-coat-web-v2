@@ -158,7 +158,7 @@ export function PostFormEdit({ initialData }: PostFormEditProps) {
 
       // 4. Llamar a tu API con Axios
       const res = await axios.put(
-        `https://blog-molokaih.onrender.com/api/posteos/${initialData?.id}`,
+        `https://blog-premium-coat.onrender.com/api/posteos/${initialData?.id}`,
         newPost,
         {
           headers: {
@@ -233,7 +233,7 @@ export function PostFormEdit({ initialData }: PostFormEditProps) {
 
   async function getTags() {
     const { data } = await axios.get(
-      "https://blog-molokaih.onrender.com/api/categorias"
+      "https://blog-premium-coat.onrender.com/api/categorias"
     );
 
     if (data.length >= 0) {

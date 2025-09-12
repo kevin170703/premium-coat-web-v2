@@ -157,39 +157,39 @@ export default function Home() {
 
   const certificates = [
     {
-      tags: ["Security", "Security"],
+      tags: ["Security", "Workplace"],
       title: "Workplace Safety Training",
       image: certification1.src,
       completionDate: "20 SEP 2021",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
+        "Comprehensive training focused on maintaining a safe and compliant workplace, covering essential safety protocols.",
     },
 
     {
-      tags: ["Security", "Security"],
+      tags: ["Security", "Heights"],
       title: "Working at Heights Certification",
       image: certification2.src,
       completionDate: "20 SEP 2021",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
+        "Certification program that teaches safe practices and equipment use when working at elevated heights and platforms.",
     },
 
     {
-      tags: ["Security", "Security"],
+      tags: ["Security", "Hazardous"],
       title: "Hazardous Material Handling",
       image: certification3.src,
       completionDate: "20 SEP 2021",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
+        "Specialized training designed to ensure safe identification, storage, and disposal of hazardous and toxic materials.",
     },
 
     {
-      tags: ["Security", "Security"],
+      tags: ["Security", "Confined Space"],
       title: "Confined Space Entry & Monitoring",
       image: certification4.src,
       completionDate: "20 SEP 2021",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
+        "Practical course on safe entry procedures, risk assessment, and monitoring practices within confined workspaces.",
     },
   ];
 
@@ -211,18 +211,17 @@ export default function Home() {
             </h1>
 
             <p className="text-white/80 w-full max-w-[500px]">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry&apos;s standard dummy
-              text ever since the 1500s
+              High-quality coatings and professional finishes for residential,
+              commercial, and industrial projects in Toronto and across Ontario.
             </p>
           </div>
 
           <div className="flex flex-col justify-center items-start gap-6">
             <Link
-              href={"/#works"}
+              href={"/Contact"}
               className="bg-secondary rounded-full px-6 py-4"
             >
-              Discover our projects
+              Get a Free Quote
             </Link>
 
             <div className="flex max-md:flex-col max-md:items-start w-max justify-center items-center gap-x-6 gap-y-2">
@@ -272,28 +271,24 @@ export default function Home() {
 
           <div>
             <h2 className="font-zain text-5xl font-bold">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              Premium Coat delivers expert painting services with lasting
+              quality and care.
             </h2>
             <p>
-              At Premium Coat, we are committed to delivering top-quality
-              industrial and commercial painting solutions. With years of
-              experience in the industry, we specialize in protective coatings,
-              surface restoration, and high-performance finishes that enhance
-              both aesthetics and durability. Our team of experts uses the
-              latest technology and premium materials to ensure long-lasting
-              results, even in the most demanding environments. <br /> <br /> We
-              take pride in our professionalism, attention to detail, and
-              dedication to customer satisfaction. Whether it&apos;s a
-              large-scale industrial facility or specialized equipment, we
-              provide tailored solutions that meet the highest industry
-              standards. At Premium Coat, quality and reliability are at the
-              core of everything we do.
+              At Premium Coat, we provide high-quality industrial, commercial,
+              and residential painting services in Toronto and across Ontario.
+              With decades of experience, our team is dedicated to precision,
+              durability, and customer satisfaction. Using premium coatings,
+              modern equipment, and proven techniques, we deliver finishes
+              designed to last. From factories and pipelines to office spaces
+              and custom homes, we handle every project with care and expertise,
+              always focused on enhancing the appearance and protection of every
+              surface.
             </p>
           </div>
 
           <Link
-            href={"/#works"}
+            href={"/about"}
             className="bg-secondary rounded-full px-6 py-4 flex text-white font-medium gap-2"
           >
             Go to About us Page
@@ -360,13 +355,12 @@ export default function Home() {
           </span>
 
           <h2 className="font-zain text-5xl font-bold">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
+            Our Professional Services
           </h2>
 
           <p className="text-white/70 w-[70%]">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry&apos;s standard
+            Comprehensive solutions tailored to residential, commercial, and
+            industrial needs.
           </p>
         </div>
 
@@ -415,7 +409,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full h-dvh min-h-max max-w-[1280px] py-20 flex flex-col justify-center items-center space-y-20">
+      {/* <section className="w-full h-dvh min-h-max max-w-[1280px] py-20 flex flex-col justify-center items-center space-y-20">
         <div className="text-center max-w-[800px] flex flex-col justify-center items-center">
           <span className="text-secondary flex justify-center items-center gap-2 font-zain text-3xl pb-2">
             Services
@@ -423,13 +417,12 @@ export default function Home() {
           </span>
 
           <h2 className="font-zain text-5xl font-bold">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
+            Our Professional Services
           </h2>
 
           <p className="opacity-70 w-[70%]">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry&apos;s standard
+            Comprehensive solutions tailored to residential, commercial, and
+            industrial needs.
           </p>
         </div>
 
@@ -464,7 +457,7 @@ export default function Home() {
               </div>
             ))}
         </div>
-      </section>
+      </section> */}
 
       <section className="w-full h-dvh min-h-max py-20 flex flex-col justify-center items-center space-y-20 ">
         <div className="text-center max-w-[800px] flex flex-col justify-center items-center">
@@ -474,12 +467,12 @@ export default function Home() {
           </span>
 
           <h2 className="font-zain text-5xl font-bold">
-            Why our customers loves us
+            Why Our Customers Choose Us
           </h2>
 
           <p className="opacity-70 w-[70%]">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry&apos;s standard
+            Trusted by homeowners, businesses, and industries across Toronto and
+            Ontario.
           </p>
         </div>
 
@@ -636,13 +629,13 @@ export default function Home() {
                 className="size-40 object-cover rounded-full mt-4"
               />
 
-              <div className="w-full flex justify-between items-center gap-2 mt-4 font-medium">
+              {/* <div className="w-full flex justify-between items-center gap-2 mt-4 font-medium">
                 <p>COMPLETION DATE</p>
 
                 <p>{certificate.completionDate}</p>
-              </div>
+              </div> */}
 
-              <p className="text-sm font-light mt-2">
+              <p className="text-sm font-light mt-4">
                 {certificate.description}
               </p>
             </div>
@@ -690,13 +683,13 @@ export default function Home() {
       >
         <div className="text-center max-w-[800px] flex flex-col justify-center items-center">
           <span className="text-secondary flex justify-center items-center gap-2 font-zain text-3xl pb-2">
-            Works
+            Recent Projects
             {/* <IconArrowBearRight /> */}
           </span>
 
           <h2 className="font-zain text-5xl font-bold">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
+            Take a look at some of our completed work across industries and
+            sectors
           </h2>
         </div>
 
