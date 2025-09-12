@@ -32,8 +32,13 @@ import { services } from "@/data/services";
 import {
   IconArrowBearRight,
   IconArrowRight,
+  IconBuildingFactory2,
+  IconDoor,
+  IconDroplets,
   IconHome,
+  IconPaint,
   IconStar,
+  IconTrolley,
 } from "@tabler/icons-react";
 import CardWork from "@/components/CardWork";
 
@@ -199,6 +204,15 @@ export default function Home() {
         "Practical course on safe entry procedures, risk assessment, and monitoring practices within confined workspaces.",
     },
   ];
+
+  const iconMap: { [key: string]: React.ElementType } = {
+    IconDoor: IconDoor,
+    IconHome: IconHome,
+    IconTrolley: IconTrolley,
+    IconBuildingFactory2: IconBuildingFactory2,
+    IconDroplets: IconDroplets,
+    IconPaint: IconPaint,
+  };
 
   return (
     <main className=" w-full h-max flex flex-col justify-start items-center p-2 overflow-hidden ">
@@ -402,7 +416,11 @@ export default function Home() {
                   />
 
                   <div className="flex flex-col justify-center items-start relative z-10 w-full h-full bg-gradient-to-r from-[#001F3C] to-[#001F3C] hover:to-[#001F3C]/80 px-6 transition-colors duration-700">
-                    <IconHome className="size-8 " />
+                    {/* <IconHome className="size-8 " /> */}
+
+                    {React.createElement(iconMap[service.icon], {
+                      className: "size-8",
+                    })}
 
                     <h3 className="text-4xl font-zain  pt-6">
                       {service.title}

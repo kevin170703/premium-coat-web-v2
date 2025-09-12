@@ -98,13 +98,13 @@ export default function Footer() {
             <p className="font-zain text-2xl font-semibold">Links</p>
             <Link href={"/"}>Home</Link>
 
-            <Link href={"/"}>About</Link>
+            <Link href={"/about"}>About</Link>
 
-            <Link href={"/"}>Blog</Link>
+            <Link href={"/blog"}>Blog</Link>
 
-            <Link href={"/"}>Gallery</Link>
+            <Link href={"/gallery"}>Gallery</Link>
 
-            <Link href={"/"}>Contact</Link>
+            <Link href={"/contact"}>Contact</Link>
           </div>
 
           <div className="flex flex-col space-y-3">

@@ -52,11 +52,13 @@ export interface Service {
   text: { title: string; text: string; image: string }[];
   secondary_images: string[];
   services: string[];
+  icon: string; // ← ahora solo es el nombre del icono
 }
 
 export const services: Service[] = [
   {
     id: "1",
+    icon: "IconDoor",
     title: "Interior Painting",
     text: [
       {
@@ -95,6 +97,7 @@ export const services: Service[] = [
   },
   {
     id: "2",
+    icon: "IconHome",
     title: "Exterior Painting",
     text: [
       {
@@ -140,6 +143,7 @@ export const services: Service[] = [
   },
   {
     id: "3",
+    icon: "IconTrolley",
     title: "Commercial Painting",
     text: [
       {
@@ -179,6 +183,7 @@ export const services: Service[] = [
   },
   {
     id: "4",
+    icon: "IconBuildingFactory2",
     title: "Industrial Painting",
     text: [
       {
@@ -224,6 +229,7 @@ export const services: Service[] = [
   },
   {
     id: "5",
+    icon: "IconDroplets",
     title: "Power Washing",
     text: [
       {
@@ -257,6 +263,7 @@ export const services: Service[] = [
   },
   {
     id: "6",
+    icon: "IconPaint",
     title: "Cabinet Painting & Refinishing",
     text: [
       {

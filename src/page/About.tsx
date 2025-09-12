@@ -85,7 +85,7 @@ export default function About() {
       </section>
 
       <section className="w-full max-w-[1280px] flex flex-col justify-center items-center gap-5 pt-10 max-lg:px-5">
-        <div className="w-full flex justify-between items-center border-t border-black pt-10 max-md:flex-col max-md:items-start">
+        <div className="w-full flex justify-between items-center border-t border-secondary pt-10 max-md:flex-col max-md:items-start">
           <h3 className="font-zain text-9xl max-md:text-7xl font-semibold leading-24">
             200+
           </h3>
@@ -99,7 +99,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="w-full flex justify-between items-center border-t border-black pt-10 max-md:flex-col max-md:items-start">
+        <div className="w-full flex justify-between items-center border-t border-secondary pt-10 max-md:flex-col max-md:items-start">
           <h3 className="font-zain text-9xl max-md:text-7xl font-semibold leading-24">
             30 Years
           </h3>
@@ -112,7 +112,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="w-full flex justify-between items-center border-t border-black pt-10 max-md:flex-col max-md:items-start">
+        <div className="w-full flex justify-between items-center border-t border-secondary pt-10 max-md:flex-col max-md:items-start">
           <h3 className="font-zain text-9xl max-md:text-7xl font-semibold leading-24">
             4.8/5
           </h3>

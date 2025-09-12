@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import {
   IconArrowLeft,
   IconCheck,
-  IconMessageChatbot,
   IconSend,
   IconUser,
 } from "@tabler/icons-react";
@@ -14,7 +13,6 @@ import logoMolokaih from "@/assets/logos/horizontal-black.png";
 import logoUserBot from "@/assets/logos/isotipo-white.png";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { div } from "framer-motion/client";
 import Link from "next/link";
 
 interface Message {
@@ -374,7 +372,7 @@ export default function ChatBot({
             animate={{ y: 0, x: 0, scale: 1, opacity: 1 }}
             exit={{ y: 50, x: 10, scale: 0.5, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="flex flex-col w-[400px] h-[600px] max-h-[600px] max-md:max-w-[91dvw] max-md:h-[74dvh] max-2xl:h-[74dvh] bg-white text-black rounded-3xl shadow-2xl border border-black/5 relative overflow-hidden"
+            className="flex flex-col w-[400px] h-[600px] max-h-[600px] max-md:max-w-[91dvw] max-md:h-[74dvh] max-2xl:h-[74dvh] bg-white text-black rounded-3xl shadow-2xl border border-black/5 relative overflow-hidden z-10"
           >
             {/* Header */}
             <header className="flex justify-center items-center p-4 gap-10 relative ">
@@ -541,24 +539,24 @@ export default function ChatBot({
             {/* Input */}
             <form
               onSubmit={sendMessage}
-              className="p-4 border-t border-black/10 sticky bottom-0 bg-white"
+              className="p-4 border-t border-black/10 sticky bottom-0 bg-white flex items-center gap-2 min-h-[40px] "
             >
-              <div className="flex items-center gap-2 min-h-[40px]">
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  placeholder={inputPlaceholder}
-                  className="flex-1 min-w-10 px-4 py-2 bg-white text-black rounded-full focus:outline-none border border-black/10"
-                />
-                <button
-                  type="submit"
-                  disabled={!inputValue.trim() || checked === false}
-                  className="bg-primary text-white rounded-full hover:scale-105 active:scale-95 transition-all size-10 min-w-[40px] p-2.5 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center shrink-0"
-                >
-                  <IconSend className="size-full" />
-                </button>
-              </div>
+              {/* <div className="flex items-center gap-2 min-h-[40px]"> */}
+              <input
+                type="text"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                placeholder={inputPlaceholder}
+                className=" flex-1 min-w-10 px-4 py-2 bg-white text-black rounded-full focus:outline-none border border-black/10"
+              />
+              <button
+                type="submit"
+                disabled={!inputValue.trim() || checked === false}
+                className="bg-primary text-white rounded-full hover:scale-105 active:scale-95 transition-all size-10 min-w-[40px] p-2.5 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center shrink-0"
+              >
+                <IconSend className="size-full" />
+              </button>
+              {/* </div> */}
             </form>
 
             {viewTerms && (
