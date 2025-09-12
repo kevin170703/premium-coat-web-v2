@@ -62,8 +62,8 @@ export default function DetailService() {
     return null;
   } else
     return (
-      <main className="w-full flex flex-col justify-start items-center text-sm relative min-h-dvh">
-        <section className="w-full h-[60vh] max-lg:max-h-[250px]  flex justify-center items-center relative bg-[#001D38]/85 p-20 max-lg:p-5 overflow-hidden">
+      <main className="w-full flex flex-col justify-start items-center text-sm relative min-h-dvh p-2">
+        <section className="w-full h-[60vh] max-lg:max-h-[250px]  flex justify-center items-center relative bg-[#001D38]/85 p-20 max-lg:p-5 overflow-hidden rounded-4xl">
           <Image
             width={2000}
             height={2000}
@@ -92,7 +92,7 @@ export default function DetailService() {
           </section>
         </section> */}
 
-        <section className="w-full flex flex-col justify-start items-center py-20 gap-30 max-lg:px-3">
+        <section className="w-full flex flex-col justify-start items-center py-20 gap-30 max-lg">
           {service.text.map(({ title, text, image }, i) => (
             <div
               key={i}

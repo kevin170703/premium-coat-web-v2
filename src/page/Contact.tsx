@@ -183,14 +183,14 @@ export default function Contact() {
                 <p className="text-base text-text-secondary">Premium Coat </p>
               </Link>
 
-              <div className="flex justify-start items-center gap-2">
+              {/* <div className="flex justify-start items-center gap-2">
                 <div className="bg-secondary rounded-full text-white p-2">
                   <IconMapPin />
                 </div>
                 <p className="text-base text-text-secondary">
                   2015 Davenport Rd, Toronto, ON M6N 1C5
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
 

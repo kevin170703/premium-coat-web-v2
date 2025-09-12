@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-import bgHero from "@/assets/bg-hero2.png";
+import bgAbout from "@/assets/services/industrial-machine/1.webp";
 
 import tank1 from "@/assets/services/tank/1.webp";
 import industrialMachine1 from "@/assets/services/industrial-machine/1.webp";
@@ -12,12 +12,12 @@ import Link from "next/link";
 
 export default function About() {
   return (
-    <main className="w-full flex flex-col justify-start items-center text-sm min-h-dvh pb-24">
-      <section className="w-full h-[60vh] max-lg:max-h-[250px]  flex justify-center items-center relative bg-[#001D38]/85 p-20 max-lg:p-5 overflow-hidden">
+    <main className="w-full flex flex-col justify-start items-center text-sm min-h-dvh pb-24 p-2">
+      <section className="w-full h-[60vh] max-lg:max-h-[250px]  flex justify-center items-center relative bg-[#001D38]/85 p-20 max-lg:p-5 overflow-hidden rounded-4xl">
         <Image
           width={2000}
           height={2000}
-          src={bgHero}
+          src={bgAbout}
           alt="bg-hero"
           className="w-full h-full absolute top-0 right-0 object-cover -z-10 saturate-200"
         />
@@ -27,7 +27,7 @@ export default function About() {
         </h1>
       </section>
 
-      <section className="w-full h-dvh min-h-max max-w-[1280px] py-20 flex max-lg:flex-col justify-between items-center gap-x-20 gap-y-10 max-lg:px-5">
+      <section className="w-full h-dvh max-h-max min-h-max max-w-[1280px] py-20 flex max-lg:flex-col justify-between items-center gap-x-20 gap-y-10 max-lg:px-3">
         <div className="flex flex-col justify-center items-start w-[49%] max-lg:w-full gap-y-6">
           <div>
             <h2 className="font-zain text-5xl font-bold">
@@ -56,7 +56,7 @@ export default function About() {
           </Link>
         </div>
 
-        <div className="flex justify-center items-center flex-1 h-full gap-3 ">
+        <div className="flex justify-center items-center flex-1 h-full gap-3 max-h-[70dvh]">
           <Image
             src={tank1}
             alt=""
@@ -84,10 +84,10 @@ export default function About() {
         </div>
       </section>
 
-      <section className="w-full max-w-[1280px] flex flex-col justify-center items-center gap-5 pt-10 max-lg:px-5">
-        <div className="w-full flex justify-between items-center border-t border-secondary pt-10 max-md:flex-col max-md:items-start">
+      <section className="w-full max-w-[1280px] flex flex-col justify-center items-center gap-5 pt-10 max-lg:px-3">
+        <div className="w-full flex justify-between items-center border-t border-secondary pt-10 max-md:flex-col max-md:items-start py-10">
           <h3 className="font-zain text-9xl max-md:text-7xl font-semibold leading-24">
-            200+
+            200<span className="text-secondary">+</span>
           </h3>
           <p className="font-medium text-black/70 max-w-[500px]">
             With more than 200 projects successfully completed across Toronto
@@ -101,7 +101,7 @@ export default function About() {
 
         <div className="w-full flex justify-between items-center border-t border-secondary pt-10 max-md:flex-col max-md:items-start">
           <h3 className="font-zain text-9xl max-md:text-7xl font-semibold leading-24">
-            30 Years
+            30<span className="text-secondary">Years</span>
           </h3>
           <p className="font-medium text-black/70 max-w-[500px]">
             With over 30 years in the industry, Premium Coat has successfully
@@ -114,7 +114,7 @@ export default function About() {
 
         <div className="w-full flex justify-between items-center border-t border-secondary pt-10 max-md:flex-col max-md:items-start">
           <h3 className="font-zain text-9xl max-md:text-7xl font-semibold leading-24">
-            4.8/5
+            4.8/<span className="text-secondary">5</span>
           </h3>
           <p className="font-medium text-black/70 max-w-[500px]">
             With an outstanding 4.8 out of 5 average client rating, Premium Coat
@@ -127,7 +127,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="w-full max-w-[1280px] flex flex-col justify-center items-center pb-20 pt-30 max-lg:px-5">
+      <section className="w-full max-w-[1280px] flex flex-col justify-center items-center pb-20 pt-30 max-lg:px-3">
         <h2 className="text-5xl font-zain font-bold">
           {" "}
           Serving Ontario & Nearby Regions
@@ -145,6 +145,13 @@ export default function About() {
           loading="lazy"
           className="w-full aspect-video rounded-4xl"
         ></iframe>
+
+        <Link
+          href={"/Contact"}
+          className="bg-secondary rounded-full px-6 py-4 text-white mt-10"
+        >
+          Get a Free Quote
+        </Link>
       </section>
     </main>
   );

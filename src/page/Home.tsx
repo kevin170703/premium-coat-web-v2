@@ -12,9 +12,9 @@ import brand1 from "@/assets/brands-clients/1.png";
 import brand2 from "@/assets/brands-clients/2.png";
 import brand3 from "@/assets/brands-clients/3.png";
 import brand4 from "@/assets/brands-clients/4.png";
-// import brand5 from "@/assets/brands-clients/5.png";
-// import brand6 from "@/assets/brands-clients/6.png";
-// import brand7 from "@/assets/brands-clients/7.webp";
+import brand5 from "@/assets/brands-clients/5.png";
+import brand6 from "@/assets/brands-clients/6.png";
+import brand7 from "@/assets/brands-clients/7.webp";
 
 import logofacebook from "@/assets/brands/facebook.svg";
 import logoinstagram from "@/assets/brands/instagram.svg";
@@ -50,7 +50,7 @@ import certification4 from "@/assets/certificates/certification4.webp";
 export default function Home() {
   const profiles = [profile1, profile2, profile3];
 
-  // const brands = [brand1, brand2, brand3, brand4];
+  const brands = [brand1, brand2, brand3, brand4];
 
   function slugify(text: string) {
     return text
@@ -613,6 +613,40 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="relative w-full h-[50dvh] max-md:h-max max-md:py-20 rounded-4xl overflow-hidden my-20 flex flex-col justify-center items-center space-y-20 bg-gradient-to-t from-[#001B35]  to-transparent px-5">
+        <Image
+          src={bgFreeQuote}
+          width={1920}
+          height={1080}
+          alt="bg-hero"
+          className="absolute w-full h-full top-0 left-0 -z-10 object-cover"
+        />
+
+        <div className="max-w-[800px] text-center text-white flex flex-col justify-center items-center gap-10">
+          <div>
+            <h2 className="font-zain text-6xl">Your vision, our commitment</h2>
+
+            <p className="opacity-80 max-md:hidden">
+              Premium Coat delivers professional industrial and commercial
+              painting, using advanced techniques and premium materials for
+              durable, long-lasting finishes. From large-scale coatings to
+              detailed applications, we offer efficient, reliable solutions that
+              protect and enhance your property.
+            </p>
+          </div>
+
+          <Link
+            href={"/contact"}
+            className="bg-secondary rounded-full px-6 py-4 flex justify-center items-center gap-2 font-medium"
+          >
+            Get a Free Quote!
+            <IconArrowRight className="-rotate-45" />
+          </Link>
+
+          <p>Prefer to chat first ? Call our : 01234 XXXX XX</p>
+        </div>
+      </section>
+
       <section className="w-full max-w-[1280px] flex flex-col justify-center items-center gap-y-20 max-lg:px-3">
         <div className="text-center max-w-[800px] flex flex-col justify-center items-center">
           <span className="text-secondary flex justify-center items-center gap-2 font-zain text-3xl pb-2">
@@ -672,40 +706,6 @@ export default function Home() {
               </p>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section className="relative w-full h-[50dvh] max-md:h-max max-md:py-20 rounded-4xl overflow-hidden my-20 flex flex-col justify-center items-center space-y-20 bg-gradient-to-t from-[#001B35]  to-transparent px-5">
-        <Image
-          src={bgFreeQuote}
-          width={1920}
-          height={1080}
-          alt="bg-hero"
-          className="absolute w-full h-full top-0 left-0 -z-10 object-cover"
-        />
-
-        <div className="max-w-[800px] text-center text-white flex flex-col justify-center items-center gap-10">
-          <div>
-            <h2 className="font-zain text-6xl">Your vision, our commitment</h2>
-
-            <p className="opacity-80 max-md:hidden">
-              Premium Coat delivers professional industrial and commercial
-              painting, using advanced techniques and premium materials for
-              durable, long-lasting finishes. From large-scale coatings to
-              detailed applications, we offer efficient, reliable solutions that
-              protect and enhance your property.
-            </p>
-          </div>
-
-          <Link
-            href={"/contact"}
-            className="bg-secondary rounded-full px-6 py-4 flex justify-center items-center gap-2 font-medium"
-          >
-            Get a Free Quote!
-            <IconArrowRight className="-rotate-45" />
-          </Link>
-
-          <p>Prefer to chat first ? Call our : 01234 XXXX XX</p>
         </div>
       </section>
 

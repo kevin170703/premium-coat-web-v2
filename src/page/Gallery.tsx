@@ -146,15 +146,33 @@ export default function Gallery() {
   ];
 
   return (
-    <main className="w-full flex flex-col justify-start items-center text-sm min-h-dvh pb-24 ">
-      <section className="w-full h-[60vh] max-lg:max-h-[250px]  flex justify-center items-center relative bg-[#001D38]/85 p-20 max-lg:p-5 overflow-hidden ">
-        <Image
-          width={2000}
-          height={2000}
-          src={t1}
-          alt="bg-hero"
-          className="w-full h-full absolute top-0 right-0 object-cover -z-10 saturate-200"
-        />
+    <main className="relative w-full flex flex-col justify-start items-center text-sm min-h-dvh pb-24 p-2 ">
+      <section className="w-full h-[60vh] max-lg:max-h-[250px]  flex justify-center items-center relative bg-[#001D38]/85 p-20 max-lg:p-5 overflow-hidden rounded-4xl">
+        <div className="flex absolute h-[200%] w-[150%] -top-[50%] -left-[20%] justify-center items-center rotate-12 -z-10">
+          <Image
+            width={2000}
+            height={2000}
+            src={t1}
+            alt="bg-hero"
+            className="w-[34%] h-full  object-cover -z-10 saturate-200"
+          />
+
+          <Image
+            width={2000}
+            height={2000}
+            src={im1}
+            alt="bg-hero"
+            className="w-[34%] h-full  object-cover -z-10 saturate-200"
+          />
+
+          <Image
+            width={2000}
+            height={2000}
+            src={c1}
+            alt="bg-hero"
+            className="w-[34%] h-full  object-cover -z-10 saturate-200"
+          />
+        </div>
 
         <h1 className="text-white font-zain text-8xl font-semibold text-center z-10 max-lg:text-5xl  lg:max-w-[50%] max-lg:pt-10">
           {"Gallery".slice(0, -2)}
@@ -162,105 +180,45 @@ export default function Gallery() {
         </h1>
       </section>
 
-      {/* <section className="lg:px-20 px-2 w-full pb-20">
-        <section className="w-full h-[60vh] max-md:h-[100px] max-lg:max-h-[250px]  flex justify-center items-center relative bg-[#001D38]/85 p-20 max-lg:p-5 rounded-4xl overflow-hidden ">
-          <Image
-            width={2000}
-            height={2000}
-            src={t1}
-            alt="bg-hero"
-            className="w-full h-full absolute top-0 right-0 object-cover -z-10 saturate-200"
-          />
-          <h1 className="text-white font-zain text-8xl font-semibold text-center z-10 max-lg:text-5xl  lg:max-w-[50%]">
-            Gallery
-          </h1>
-        </section>
+      {/* <section className="w-full flex flex-col justify-center items-start py-20 px-5">
+        <h1 className="text-black font-zain text-8xl font-semibold  z-10 max-lg:text-5xl text-start max-lg:pt-10">
+          {"Gallery".slice(0, -2)}
+          <span className="text-secondary">{"Gallery".slice(-2)}</span>
+        </h1>
 
-        <div className="flex flex-wrap justify-center items-center gap-4 mt-10">
-          {services.map((service) => (
-            <button
-              key={service.name}
-              onClick={() =>
-                setServiceSelected(service.name.toLocaleLowerCase())
-              }
-              className={`px-6 py-2 rounded-full text-lg border cursor-pointer  ${
-                serviceSelected === service.name.toLocaleLowerCase()
-                  ? "bg-secondary text-white border-transparent"
-                  : "border-secondary text-secondary"
-              }`}
-            >
-              {service.name} Painting
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <section className="h-max py-30 max-lg:pb-10">
-        <div className="text-center flex flex-col justify-center items-center px-5">
-          <h1 className="font-zain text-6xl font-bold">Gallery</h1>
-          <p className="opacity-70 text-lg max-w-[450px]">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
-          </p>
-        </div>
-
-        <div className="flex flex-wrap justify-center items-center gap-4 mt-10">
-          {services.map((service) => (
-            <button
-              key={service.name}
-              onClick={() =>
-                setServiceSelected(service.name.toLocaleLowerCase())
-              }
-              className={`px-6 py-2 rounded-full text-lg border cursor-pointer  ${
-                serviceSelected === service.name.toLocaleLowerCase()
-                  ? "bg-secondary text-white border-transparent"
-                  : "border-secondary text-secondary"
-              }`}
-            >
-              {service.name} Painting
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <section className="relative h-max py-30 max-lg:pb-10 w-full ">
-        <div className="size-40 bg-primary rounded-full absolute top-1/2 left-[10%] blur-2xl"></div>
-        <div className="text-center flex flex-col justify-center items-center px-5">
-          <h1 className="font-zain text-6xl font-bold">Gallery</h1>
-          <p className="opacity-70 text-lg max-w-[450px]">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
-          </p>
-        </div>
-
-        <div className="flex flex-wrap justify-center items-center gap-4 mt-10">
-          {services.map((service) => (
-            <button
-              key={service.name}
-              onClick={() =>
-                setServiceSelected(service.name.toLocaleLowerCase())
-              }
-              className={`px-6 py-2 rounded-full text-lg border cursor-pointer  ${
-                serviceSelected === service.name.toLocaleLowerCase()
-                  ? "bg-secondary text-white border-transparent"
-                  : "border-secondary text-secondary"
-              }`}
-            >
-              {service.name} Painting
-            </button>
-          ))}
-        </div>
+        <p className="text-xl max-w-[600px]">
+          Work Performed with Quality and Precision, delivering reliable
+          solutions that stand the test of time and reflect our commitment to
+          excellence.
+        </p>
       </section> */}
 
+      {/* <div className=" overflow-x-auto mt-10 fixed bottom-10 z-10 bg-white max-w-full w-max rounded-full p-5 max-md:p-2 shadow-xl ">
+        <div className="w-full flex justify-center max-md:justify-start items-center gap-4">
+          {services.map((service) => (
+            <button
+              key={service.name}
+              onClick={() =>
+                setServiceSelected(service.name.toLocaleLowerCase())
+              }
+              className={`px-6 min-w-max py-2 rounded-full text-lg max-md:text-base border cursor-pointer font-medium  ${
+                serviceSelected === service.name.toLocaleLowerCase()
+                  ? "bg-primary text-white border-transparent"
+                  : "border-transparent text-primary"
+              }`}
+            >
+              {service.name} Painting
+            </button>
+          ))}
+        </div>
+      </div> */}
+
       <section className="px-5 mb-5 w-full mt-10 pt-10 flex flex-col justify-center items-center text-center">
-        <h2 className="font-zain text-7xl font-bold max-md:text-5xl leading-14 ">
+        <h2 className="font-zain text-7xl font-bold max-md:text-5xl leading-14 max-md:leading-10 ">
           Work Performed with Quality <br /> and{" "}
           <span className="text-secondary">Precision</span>
         </h2>
-        {/* <p className="text-lg max-w-[600px]">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry.
-        </p> */}
+
         <div className="w-full overflow-x-auto mt-10">
           <div className="w-full flex justify-center max-md:justify-start items-center gap-4   ">
             {services.map((service) => (
@@ -283,7 +241,7 @@ export default function Gallery() {
       </section>
 
       {/* Masonry gallery */}
-      <section className="w-full columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3 px-5 max-md:px-2">
+      <section className="w-full columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3 px-5 max-md:px-2 mt-10">
         {images &&
           images[serviceSelected].map((image, i) => (
             <div
