@@ -8,7 +8,7 @@ import {
   IconSend,
   IconUser,
 } from "@tabler/icons-react";
-// import { v7 } from "uuid";
+import { v7 } from "uuid";
 
 import logoMolokaih from "@/assets/logos/horizontal-black.png";
 import logoUserBot from "@/assets/logos/isotipo-white.png";
@@ -38,8 +38,7 @@ export default function ChatBot({
   inputPlaceholder?: string;
   logo?: string;
 }) {
-  // const sessionId = useRef(v7());
-  const sessionId = "1213";
+  const sessionId = useRef(v7());
 
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
@@ -94,8 +93,7 @@ export default function ChatBot({
         },
         body: JSON.stringify({
           message: inputValue,
-          sessionId: sessionId,
-          // sessionId: sessionId.current,
+          sessionId: sessionId.current,
         }),
       });
 

@@ -92,7 +92,7 @@ export default function DetailService() {
           </section>
         </section> */}
 
-        <section className="w-full flex flex-col justify-start items-center py-20 gap-30">
+        <section className="w-full flex flex-col justify-start items-center py-20 gap-30 max-lg:px-3">
           {service.text.map(({ title, text, image }, i) => (
             <div
               key={i}

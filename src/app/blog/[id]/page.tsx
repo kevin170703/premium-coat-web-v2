@@ -80,9 +80,9 @@ export default function PostDetailPage() {
   } else if (post && !loading)
     return (
       <div className="min-h-screen bg-background py-30 relative overflow-hidden px-5">
-        <div className="container mx-auto px-4 py-8 max-w-[846px]">
+        <div className="container mx-auto py-8 max-w-[846px]">
           {/*  */}
-          <div className="flex justify-center items-center gap-2 w-full mb-6 text-black/70">
+          <div className="flex justify-center items-center gap-2 w-full mb-6 text-black/70 max-md:hidden">
             <Link href={"/"}>Home</Link>
             <span>/</span>
             <Link href={"/blog"}>Blog</Link>
@@ -95,7 +95,7 @@ export default function PostDetailPage() {
           {/* Post header */}
           <article>
             <header className="mb-8">
-              <h1 className="text-7xl leading-16 font-zain max-lg:text-5xl max-md:text-3xl font-semibold text-foreground mb-12 text-center w-full text-balance">
+              <h1 className="text-7xl leading-16 font-zain max-lg:text-5xl max-lg:leading-10 max-md:text-3xl max-md:leading-8 font-semibold text-foreground mb-12 text-center w-full text-balance">
                 {post.titulo}
               </h1>
 

@@ -119,46 +119,46 @@ export default function Home() {
     {
       id: "8",
       image: logogoogle.src,
-      name: "Stonebridge Supplies",
+      name: "Michael Thompson",
       position: "Operations Director",
       testimonial:
-        "We hired Premium Coat to paint the metal deck ceiling of our store, and they worked during the night to avoid disrupting our business hours. They were very organized, worked carefully, and made sure everything was ready for us to open the next day without any issues. Great service.",
+        "Premium Coat did an outstanding job painting our warehouse ceiling. They worked overnight to ensure no disruption, and everything was spotless and ready by morning. Truly professional and efficient.",
     },
 
     {
       id: "9",
       image: logoinstagram.src,
-      name: "Diana Cameron",
+      name: "Diana Roberts",
       position: "Facility Supervisor",
       testimonial:
-        "We hired Premium Coat to paint the metal deck ceiling of our store, and they worked during the night to avoid disrupting our business hours. They were very organized, worked carefully, and made sure everything was ready for us to open the next day without any issues. Great service.",
+        "We were impressed with Premium Coat's attention to detail. The team worked quietly at night, ensuring our operations were unaffected. The ceiling looks fantastic, and the service was excellent.",
     },
 
     {
       id: "10",
       image: logofacebook.src,
-      name: "Diana Cameron",
-      position: "Facility Supervisor",
+      name: "James Wilson",
+      position: "Maintenance Manager",
       testimonial:
-        "We hired Premium Coat to paint the metal deck ceiling of our store, and they worked during the night to avoid disrupting our business hours. They were very organized, worked carefully, and made sure everything was ready for us to open the next day without any issues. Great service.",
+        "Hiring Premium Coat was the best decision for our store renovation. They completed the metal deck painting without interfering with business hours, and the results exceeded our expectations.",
     },
 
     {
       id: "11",
       image: logogoogle.src,
-      name: "Diana Cameron",
+      name: "Emily Johnson",
       position: "Facility Supervisor",
       testimonial:
-        "We hired Premium Coat to paint the metal deck ceiling of our store, and they worked during the night to avoid disrupting our business hours. They were very organized, worked carefully, and made sure everything was ready for us to open the next day without any issues. Great service.",
+        "Premium Coat delivered exceptional service from start to finish. Their night shift work minimized disruption, and they ensured everything was perfectly prepared for the next day. Highly recommended.",
     },
 
     {
       id: "12",
       image: logogoogle.src,
-      name: "Diana Cameron",
-      position: "Facility Supervisor",
+      name: "Robert Smith",
+      position: "Operations Manager",
       testimonial:
-        "We hired Premium Coat to paint the metal deck ceiling of our store, and they worked during the night to avoid disrupting our business hours. They were very organized, worked carefully, and made sure everything was ready for us to open the next day without any issues. Great service.",
+        "The team at Premium Coat was punctual, careful, and professional. Our metal deck ceiling looks amazing, and the overnight work meant we never had to close the store. Great experience overall.",
     },
   ];
 
